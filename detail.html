@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>콘텐츠 상세 | Education Archive</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="utility-bar">
+  <div class="inner">
+    <a href="https://vestmall.kr/front/extra/extra_html.php?html=remote" target="_blank" rel="noopener">원격지원</a>
+    <a href="https://vatechmcis.com/" target="_blank" rel="noopener">바텍엠시스 홈페이지 ↗</a>
+  </div>
+</div>
+<div class="site-header">
+  <div class="inner">
+    <a class="logo-link" href="index.html">
+      <div class="logo-group">
+        <div class="logo-chip"><img src="assets/logo-vatechmcis.png" alt="vatech mcis" /></div>
+        <div class="logo-divider"></div>
+        <div class="academy-wordmark"><span class="line2">Education Archive</span></div>
+      </div>
+    </a>
+    <div class="header-row-wrap">
+      <nav class="main-nav">
+        <a href="index.html" class="home-link">아카이브 홈</a>
+        <a href="ez3d-i.html" class="nav-dental">Ez3D-i</a>
+        <a href="ezortho.html" class="nav-dental">EzOrtho</a>
+        <a href="ezdent-i.html" class="nav-dental">EzDent-i</a>
+        <a href="clever-one.html" class="nav-clever-one">Clever One</a>
+        <a href="clever-lab.html" class="nav-lab">Clever Lab</a>
+      </nav>
+      <div class="header-icons">
+        <a class="reserve-toggle" href="https://www.miricanvas.com/v2/design2/v/1a86edd3-d8cb-4b45-9fa4-6c8b7379f6b5" target="_blank" rel="noopener" aria-label="온라인 교육 예약" title="온라인 교육 예약"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="16" rx="2.5"/><line x1="16" y1="2.5" x2="16" y2="6.5"/><line x1="8" y1="2.5" x2="8" y2="6.5"/><line x1="3" y1="9.5" x2="21" y2="9.5"/><path d="M8.5 14l2 2 4-4"/></svg></a>
+        <button type="button" class="search-toggle" id="searchToggle" aria-label="검색"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="search-overlay" id="searchOverlay">
+  <div class="inner">
+    <span class="close-link" id="searchClose">취소</span>
+    <div class="search-input-row">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="text" id="searchInput" placeholder="콘텐츠 이름, 제품명으로 검색" autocomplete="off" />
+    </div>
+
+    <div id="searchDefault">
+      <div class="search-columns">
+        <div>
+          <div class="col-label">빠른 링크</div>
+          <a href="ez3d-i.html">Ez3D-i</a>
+          <a href="ezortho.html">EzOrtho</a>
+          <a href="ezdent-i.html">EzDent-i</a>
+          <a href="clever-one.html">Clever One</a>
+          <a href="clever-lab.html">Clever Lab</a>
+        </div>
+        <div>
+          <div class="col-label">인기 콘텐츠</div>
+          <div id="popularQuickLinks"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="search-results" id="searchResults" style="display:none;"></div>
+  </div>
+</div>
+<div class="page" style="padding-top:28px;">
+  <p class="breadcrumb" id="crumb" style="font-size:13px; color:var(--ink-soft); margin-bottom:18px;">
+    <a href="index.html">Education Archive</a> <span style="color:#c4c9d2;">/</span> <span id="crumbProduct"></span> <span style="color:#c4c9d2;">/</span> <span id="crumbName" style="color:var(--vatech-red); font-weight:700;"></span>
+  </p>
+
+  <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:16px; margin-bottom:22px; flex-wrap:wrap;">
+    <div>
+      <h1 id="itemName" style="font-size:26px; font-weight:800; margin:0 0 8px;"></h1>
+      <div id="itemMeta" class="view-badge" style="display:inline-block;"></div>
+    </div>
+    <a id="backLink" href="index.html" class="btn btn-outline">← 목록으로</a>
+  </div>
+
+  <div class="detail-frame-wrap">
+    <iframe id="mainFrame" src="" title="콘텐츠 미리보기" allowfullscreen loading="lazy"></iframe>
+  </div>
+  <div class="detail-fallback">
+    <span>화면이 표시되지 않는다면, 대상 사이트에서 외부 삽입을 막아둔 것일 수 있습니다.</span>
+    <a id="openNewTab" href="#" target="_blank" rel="noopener" class="btn btn-primary">새 창에서 열기 ↗</a>
+  </div>
+
+  <div id="ytSection" style="display:none;">
+    <div class="section-title-row" style="margin-top:36px;">
+      <h2 style="font-size:18px;">관련 유튜브 영상</h2>
+    </div>
+    <div class="detail-yt-wrap">
+      <iframe id="ytFrame" src="" title="유튜브 영상" allowfullscreen loading="lazy"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+    </div>
+  </div>
+
+  <footer class="site-footer" style="margin-top:56px;">
+    <div><span class="brand">(주)바텍엠시스</span>대표이사 : 고영탁 · 사업자등록번호 : 104-86-22858</div>
+    <div>본사 경기도 수원시 권선구 산업로155번길 38 (고색동) · 서울사무소 서울시 마포구 토정로 266, 3층 (용강동)</div>
+    <div>장애접수·고객센터 1577-9115 (평일 09:30~18:00) · <a href="https://vatechmcis.com/" target="_blank" rel="noopener">vatechmcis.com 바로가기 ↗</a></div>
+    <div class="disclaimer">본 페이지는 Education Archive 내부 교육 콘텐츠 아카이브이며, (주)바텍엠시스 공식 홈페이지와는 별개로 운영되는 사내 도구입니다.</div>
+  </footer>
+</div>
+
+<script>
+const params = new URLSearchParams(location.search);
+const url = params.get('url') || '';
+const name = params.get('name') || '콘텐츠';
+const product = params.get('product') || '';
+const yt = params.get('yt') || '';
+const slugMap = {
+  'Ez3D-i': 'ez3d-i.html', 'EzOrtho': 'ezortho.html', 'EzDent-i': 'ezdent-i.html',
+  'Clever One': 'clever-one.html', 'Clever Lab': 'clever-lab.html'
+};
+
+document.title = name + ' | Education Archive';
+document.getElementById('itemName').textContent = name;
+document.getElementById('crumbProduct').innerHTML = slugMap[product]
+  ? '<a href="' + slugMap[product] + '">' + product + '</a>' : product;
+document.getElementById('crumbName').textContent = name;
+document.getElementById('itemMeta').textContent = product;
+document.getElementById('backLink').href = slugMap[product] || 'index.html';
+document.getElementById('mainFrame').src = url;
+document.getElementById('openNewTab').href = url;
+
+if (yt) {
+  let videoId = '';
+  try {
+    const u = new URL(yt);
+    if (u.hostname.includes('youtu.be')) videoId = u.pathname.slice(1);
+    else if (u.searchParams.get('v')) videoId = u.searchParams.get('v');
+  } catch (e) {}
+  if (videoId) {
+    document.getElementById('ytFrame').src = 'https://www.youtube.com/embed/' + videoId;
+    document.getElementById('ytSection').style.display = 'block';
+  }
+}
+
+// 상세 페이지 진입 = 콘텐츠 열람으로 간주하여 조회수 +1
+if (url) {
+  fetch('/api/click', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ url, type: 'miricanvas', name, product })
+  }).catch(() => {});
+}
+</script>
+<div class="content-modal-backdrop" id="contentModalBackdrop">
+  <div class="content-modal">
+    <div class="modal-top">
+      <div class="modal-title-wrap">
+        <div class="modal-eyebrow" id="modalEyebrow"></div>
+        <h3 id="modalTitle"></h3>
+      </div>
+      <div class="modal-close" id="modalClose"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div>
+    </div>
+    <div class="detail-frame-wrap">
+      <iframe id="modalFrame" src="" title="콘텐츠 미리보기" allowfullscreen loading="lazy"></iframe>
+    </div>
+    <div class="detail-fallback">
+      <span>화면이 표시되지 않는다면, 대상 사이트에서 외부 삽입을 막아둔 것일 수 있습니다.</span>
+      <a id="modalOpenNewTab" href="#" target="_blank" rel="noopener" class="btn btn-primary">새 창에서 열기 ↗</a>
+    </div>
+    <div id="modalYtSection" style="display:none;">
+      <div class="section-title-row" style="margin-top:28px;">
+        <h2 style="font-size:18px;">관련 유튜브 영상</h2>
+      </div>
+      <div class="detail-yt-wrap">
+        <iframe id="modalYtFrame" src="" title="유튜브 영상" allowfullscreen loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-data.js"></script>
+<script src="search-ui.js"></script>
+<script src="modal-ui.js"></script>
+</body>
+</html>

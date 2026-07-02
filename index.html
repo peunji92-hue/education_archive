@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Education Archive | 바텍엠시스</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="utility-bar">
+  <div class="inner">
+    <a href="https://vestmall.kr/front/extra/extra_html.php?html=remote" target="_blank" rel="noopener">원격지원</a>
+    <a href="https://vatechmcis.com/" target="_blank" rel="noopener">바텍엠시스 홈페이지 ↗</a>
+  </div>
+</div>
+<div class="site-header">
+  <div class="inner">
+    <a class="logo-link" href="index.html">
+      <div class="logo-group">
+        <div class="logo-chip"><img src="assets/logo-vatechmcis.png" alt="vatech mcis" /></div>
+        <div class="logo-divider"></div>
+        <div class="academy-wordmark"><span class="line2">Education Archive</span></div>
+      </div>
+    </a>
+    <div class="header-row-wrap">
+      <nav class="main-nav">
+        <a href="index.html" class="home-link active">아카이브 홈</a>
+        <a href="ez3d-i.html" class="nav-dental">Ez3D-i</a>
+        <a href="ezortho.html" class="nav-dental">EzOrtho</a>
+        <a href="ezdent-i.html" class="nav-dental">EzDent-i</a>
+        <a href="clever-one.html" class="nav-clever-one">Clever One</a>
+        <a href="clever-lab.html" class="nav-lab">Clever Lab</a>
+      </nav>
+      <div class="header-icons">
+        <a class="reserve-toggle" href="https://www.miricanvas.com/v2/design2/v/1a86edd3-d8cb-4b45-9fa4-6c8b7379f6b5" target="_blank" rel="noopener" aria-label="온라인 교육 예약" title="온라인 교육 예약"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="16" rx="2.5"/><line x1="16" y1="2.5" x2="16" y2="6.5"/><line x1="8" y1="2.5" x2="8" y2="6.5"/><line x1="3" y1="9.5" x2="21" y2="9.5"/><path d="M8.5 14l2 2 4-4"/></svg></a>
+        <button type="button" class="search-toggle" id="searchToggle" aria-label="검색"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="search-overlay" id="searchOverlay">
+  <div class="inner">
+    <span class="close-link" id="searchClose">취소</span>
+    <div class="search-input-row">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="text" id="searchInput" placeholder="콘텐츠 이름, 제품명으로 검색" autocomplete="off" />
+    </div>
+
+    <div id="searchDefault">
+      <div class="search-columns">
+        <div>
+          <div class="col-label">빠른 링크</div>
+          <a href="ez3d-i.html">Ez3D-i</a>
+          <a href="ezortho.html">EzOrtho</a>
+          <a href="ezdent-i.html">EzDent-i</a>
+          <a href="clever-one.html">Clever One</a>
+          <a href="clever-lab.html">Clever Lab</a>
+        </div>
+        <div>
+          <div class="col-label">인기 콘텐츠</div>
+          <div id="popularQuickLinks"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="search-results" id="searchResults" style="display:none;"></div>
+  </div>
+</div>
+<div class="page">
+
+  <section class="hero">
+    <p class="eyebrow">Education Archive</p>
+    <h1>바텍엠시스 Education Archive<br/>제품 사용법을 한 곳에서 확인하세요.</h1>
+    <p>Dental SW인 Ez3D-i · EzOrtho · EzDent-i · Clever One과<br/>기공소 SW인 Clever Lab의 사용법을 화면 단위로 정리했습니다.</p>
+  </section>
+
+  <section class="section-block" id="products">
+    <div class="section-title-row"><h2>제품 선택하기</h2></div>
+    <div class="product-nav-grid">
+    <a class="product-nav-card" style="--bookmark-color:var(--dental-green)" href="ez3d-i.html">
+      <div class="product-nav-thumb dental"><span class="thumb-icon" style="font-size:16px;">3D</span></div>
+      <div class="product-nav-body">
+        <div class="n-title">Ez3D-i</div>
+        <div class="n-meta"><span class="sw-badge dental"><span class="dot"></span>Dental SW</span><span class="view-badge">18개 콘텐츠</span></div>
+        <div class="n-go">CBCT 3D 영상 진단 소프트웨어 →</div>
+      </div>
+    </a>
+    <a class="product-nav-card" style="--bookmark-color:var(--dental-green)" href="ezortho.html">
+      <div class="product-nav-thumb dental"><span class="thumb-icon" style="font-size:13px;">Ortho</span></div>
+      <div class="product-nav-body">
+        <div class="n-title">EzOrtho</div>
+        <div class="n-meta"><span class="sw-badge dental"><span class="dot"></span>Dental SW</span><span class="view-badge">8개 콘텐츠</span></div>
+        <div class="n-go">교정 분석 소프트웨어 →</div>
+      </div>
+    </a>
+    <a class="product-nav-card" style="--bookmark-color:var(--dental-green)" href="ezdent-i.html">
+      <div class="product-nav-thumb dental"><span class="thumb-icon" style="font-size:16px;">2D</span></div>
+      <div class="product-nav-body">
+        <div class="n-title">EzDent-i</div>
+        <div class="n-meta"><span class="sw-badge dental"><span class="dot"></span>Dental SW</span><span class="view-badge">15개 콘텐츠</span></div>
+        <div class="n-go">2D 영상 관리 소프트웨어 →</div>
+      </div>
+    </a>
+    <a class="product-nav-card" style="--bookmark-color:var(--clever-one-black)" href="clever-one.html">
+      <div class="product-nav-thumb clever-one"><span class="thumb-icon" style="font-size:11px;">2D+3D</span></div>
+      <div class="product-nav-body">
+        <div class="n-title">Clever One</div>
+        <div class="n-meta"><span class="sw-badge dental"><span class="dot"></span>Dental SW</span><span class="view-badge">35개 콘텐츠</span></div>
+        <div class="n-go">진료 데이터를 하나로 통합한 2D&amp;3D All-in-One 솔루션 →</div>
+      </div>
+    </a>
+    <a class="product-nav-card" style="--bookmark-color:var(--lab-mint)" href="clever-lab.html">
+      <div class="product-nav-thumb lab"><span class="thumb-icon" style="font-size:13px;">DLM</span></div>
+      <div class="product-nav-body">
+        <div class="n-title">Clever Lab</div>
+        <div class="n-meta"><span class="sw-badge lab"><span class="dot"></span>기공소 SW</span><span class="view-badge">19개 콘텐츠</span></div>
+        <div class="n-go">기공소 업무 관리 소프트웨어 →</div>
+      </div>
+    </a>
+    <a class="product-nav-card" style="--bookmark-color:var(--ink)" href="https://www.miricanvas.com/v2/design2/v/1a86edd3-d8cb-4b45-9fa4-6c8b7379f6b5" target="_blank" rel="noopener">
+      <div class="product-nav-thumb"><span class="thumb-icon" style="background:var(--ink); font-size:18px;">📅</span></div>
+      <div class="product-nav-body">
+        <div class="n-title">온라인 교육 예약</div>
+        <div class="n-meta"><span class="view-badge">사전 예약제로 운영되는 온라인 교육</span></div>
+        <div class="n-go">예약 페이지로 이동 →</div>
+      </div>
+    </a>
+    </div>
+  </section>
+
+  <section class="section-block" id="popular">
+    <div class="section-title-row">
+      <h2>추천 콘텐츠</h2>
+    </div>
+
+    <div class="section-title-row" style="border-bottom:none; margin-bottom:14px; padding-bottom:0;">
+      <h2 style="font-size:17px;"><span class="sw-badge dental" style="margin-right:8px;"><span class="dot"></span>Dental SW</span>TOP 5</h2>
+    </div>
+    <div class="news-list" style="margin-bottom:36px;">
+      
+    <div class="news-row" data-url="https://www.miricanvas.com/ko/v/15f3cm4" onclick="openContentModal('https://www.miricanvas.com/ko/v/15f3cm4','영상 내보내기/불러오기 (외부 영상 저장하기)','Clever One','')" style="cursor:pointer;">
+      <div class="num">01</div>
+      <div class="info">
+        <div class="title">영상 내보내기/불러오기 (외부 영상 저장하기)</div>
+        <div class="meta"><span class="sw-badge dental"><span class="dot"></span>Dental SW</span><span>Clever One</span></div>
+      </div>
+      <div class="actions">
+        <span class="btn btn-outline" onclick="event.stopPropagation(); openContentModal('https://www.miricanvas.com/ko/v/15f3cm4','영상 내보내기/불러오기 (외부 영상 저장하기)','Clever One','');">자세히 보기</span>
+      </div>
+    </div>
+    <div class="news-row" data-url="https://www.miricanvas.com/v/15990zf" onclick="openContentModal('https://www.miricanvas.com/v/15990zf','TMJ 탭','Ez3D-i','')" style="cursor:pointer;">
+      <div class="num">02</div>
+      <div class="info">
+        <div class="title">TMJ 탭</div>
+        <div class="meta"><span class="sw-badge dental"><span class="dot"></span>Dental SW</span><span>Ez3D-i</span></div>
+      </div>
+      <div class="actions">
+        <span class="btn btn-outline" onclick="event.stopPropagation(); openContentModal('https://www.miricanvas.com/v/15990zf','TMJ 탭','Ez3D-i','');">자세히 보기</span>
+      </div>
+    </div>
+    <div class="news-row" data-url="https://www.miricanvas.com/v/14k54sm" onclick="openContentModal('https://www.miricanvas.com/v/14k54sm','커브그리기','Ez3D-i','https://youtu.be/LMv--eKXZAo')" style="cursor:pointer;">
+      <div class="num">03</div>
+      <div class="info">
+        <div class="title">커브그리기</div>
+        <div class="meta"><span class="sw-badge dental"><span class="dot"></span>Dental SW</span><span>Ez3D-i</span></div>
+      </div>
+      <div class="actions">
+        <span class="btn btn-outline" onclick="event.stopPropagation(); openContentModal('https://www.miricanvas.com/v/14k54sm','커브그리기','Ez3D-i','https://youtu.be/LMv--eKXZAo');">자세히 보기</span>
+      </div>
+    </div>
+    <div class="news-row" data-url="https://www.miricanvas.com/ko/v/15ft3l4" onclick="openContentModal('https://www.miricanvas.com/ko/v/15ft3l4','Clever One 설정','Clever One','')" style="cursor:pointer;">
+      <div class="num">04</div>
+      <div class="info">
+        <div class="title">Clever One 설정</div>
+        <div class="meta"><span class="sw-badge dental"><span class="dot"></span>Dental SW</span><span>Clever One</span></div>
+      </div>
+      <div class="actions">
+        <span class="btn btn-outline" onclick="event.stopPropagation(); openContentModal('https://www.miricanvas.com/ko/v/15ft3l4','Clever One 설정','Clever One','');">자세히 보기</span>
+      </div>
+    </div>
+    <div class="news-row" data-url="https://www.miricanvas.com/v/14htr3v" onclick="openContentModal('https://www.miricanvas.com/v/14htr3v','간격/두께','Ez3D-i','')" style="cursor:pointer;">
+      <div class="num">05</div>
+      <div class="info">
+        <div class="title">간격/두께</div>
+        <div class="meta"><span class="sw-badge dental"><span class="dot"></span>Dental SW</span><span>Ez3D-i</span></div>
+      </div>
+      <div class="actions">
+        <span class="btn btn-outline" onclick="event.stopPropagation(); openContentModal('https://www.miricanvas.com/v/14htr3v','간격/두께','Ez3D-i','');">자세히 보기</span>
+      </div>
+    </div>
+    </div>
+
+    <div class="section-title-row" style="border-bottom:none; margin-bottom:14px; padding-bottom:0;">
+      <h2 style="font-size:17px;"><span class="sw-badge lab" style="margin-right:8px;"><span class="dot"></span>기공소 SW</span>TOP 5</h2>
+    </div>
+    <div class="news-list">
+      
+    <div class="news-row" data-url="https://www.miricanvas.com/v/14geoj7" onclick="openContentModal('https://www.miricanvas.com/v/14geoj7','내 기공소 정보 입력하기','Clever Lab','https://youtu.be/L47fkVNeFr0')" style="cursor:pointer;">
+      <div class="num">01</div>
+      <div class="info">
+        <div class="title">내 기공소 정보 입력하기</div>
+        <div class="meta"><span class="sw-badge lab"><span class="dot"></span>기공소 SW</span><span>Clever Lab</span></div>
+      </div>
+      <div class="actions">
+        <span class="btn btn-outline" onclick="event.stopPropagation(); openContentModal('https://www.miricanvas.com/v/14geoj7','내 기공소 정보 입력하기','Clever Lab','https://youtu.be/L47fkVNeFr0');">자세히 보기</span>
+      </div>
+    </div>
+    <div class="news-row" data-url="https://www.miricanvas.com/v/14hjcpi" onclick="openContentModal('https://www.miricanvas.com/v/14hjcpi','의뢰서 등록하기','Clever Lab','https://youtu.be/9s5TBV6qENQ')" style="cursor:pointer;">
+      <div class="num">02</div>
+      <div class="info">
+        <div class="title">의뢰서 등록하기</div>
+        <div class="meta"><span class="sw-badge lab"><span class="dot"></span>기공소 SW</span><span>Clever Lab</span></div>
+      </div>
+      <div class="actions">
+        <span class="btn btn-outline" onclick="event.stopPropagation(); openContentModal('https://www.miricanvas.com/v/14hjcpi','의뢰서 등록하기','Clever Lab','https://youtu.be/9s5TBV6qENQ');">자세히 보기</span>
+      </div>
+    </div>
+    <div class="news-row" data-url="https://www.miricanvas.com/v/14oslxp" onclick="openContentModal('https://www.miricanvas.com/v/14oslxp','거래명세서 발행','Clever Lab','https://youtu.be/rCzHZEc0vxg')" style="cursor:pointer;">
+      <div class="num">03</div>
+      <div class="info">
+        <div class="title">거래명세서 발행</div>
+        <div class="meta"><span class="sw-badge lab"><span class="dot"></span>기공소 SW</span><span>Clever Lab</span></div>
+      </div>
+      <div class="actions">
+        <span class="btn btn-outline" onclick="event.stopPropagation(); openContentModal('https://www.miricanvas.com/v/14oslxp','거래명세서 발행','Clever Lab','https://youtu.be/rCzHZEc0vxg');">자세히 보기</span>
+      </div>
+    </div>
+    <div class="news-row" data-url="https://www.miricanvas.com/v/14jhv06" onclick="openContentModal('https://www.miricanvas.com/v/14jhv06','의뢰 관리 (의뢰항목, 라벨인쇄)','Clever Lab','https://youtu.be/59f5Apn12tQ')" style="cursor:pointer;">
+      <div class="num">04</div>
+      <div class="info">
+        <div class="title">의뢰 관리 (의뢰항목, 라벨인쇄)</div>
+        <div class="meta"><span class="sw-badge lab"><span class="dot"></span>기공소 SW</span><span>Clever Lab</span></div>
+      </div>
+      <div class="actions">
+        <span class="btn btn-outline" onclick="event.stopPropagation(); openContentModal('https://www.miricanvas.com/v/14jhv06','의뢰 관리 (의뢰항목, 라벨인쇄)','Clever Lab','https://youtu.be/59f5Apn12tQ');">자세히 보기</span>
+      </div>
+    </div>
+    <div class="news-row" data-url="https://www.miricanvas.com/v/14ss7xi" onclick="openContentModal('https://www.miricanvas.com/v/14ss7xi','기공물 통계','Clever Lab','')" style="cursor:pointer;">
+      <div class="num">05</div>
+      <div class="info">
+        <div class="title">기공물 통계</div>
+        <div class="meta"><span class="sw-badge lab"><span class="dot"></span>기공소 SW</span><span>Clever Lab</span></div>
+      </div>
+      <div class="actions">
+        <span class="btn btn-outline" onclick="event.stopPropagation(); openContentModal('https://www.miricanvas.com/v/14ss7xi','기공물 통계','Clever Lab','');">자세히 보기</span>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <section class="cta-band cta-darkgray">
+    <div>
+      <h3>온라인 교육이 더 필요하신가요?</h3>
+      <p>원하는 일정을 사전에 예약하는 온라인 교육 시스템입니다.</p>
+    </div>
+    <a class="btn btn-primary" href="https://www.miricanvas.com/v2/design2/v/1a86edd3-d8cb-4b45-9fa4-6c8b7379f6b5" target="_blank" rel="noopener">교육 예약하기 →</a>
+  </section>
+
+  
+  <footer class="site-footer">
+    <div><span class="brand">(주)바텍엠시스</span>대표이사 : 고영탁 · 사업자등록번호 : 104-86-22858</div>
+    <div>본사 경기도 수원시 권선구 산업로155번길 38 (고색동) · 서울사무소 서울시 마포구 토정로 266, 3층 (용강동)</div>
+    <div>장애접수·고객센터 1577-9115 (평일 09:30~18:00) · <a href="https://vatechmcis.com/" target="_blank" rel="noopener">vatechmcis.com 바로가기 ↗</a></div>
+    <div class="disclaimer">본 페이지는 Education Archive 내부 교육 콘텐츠 아카이브이며, (주)바텍엠시스 공식 홈페이지와는 별개로 운영되는 사내 도구입니다.</div>
+  </footer>
+</div>
+
+<div class="content-modal-backdrop" id="contentModalBackdrop">
+  <div class="content-modal">
+    <div class="modal-top">
+      <div class="modal-title-wrap">
+        <div class="modal-eyebrow" id="modalEyebrow"></div>
+        <h3 id="modalTitle"></h3>
+      </div>
+      <div class="modal-close" id="modalClose"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div>
+    </div>
+    <div class="detail-frame-wrap">
+      <iframe id="modalFrame" src="" title="콘텐츠 미리보기" allowfullscreen loading="lazy"></iframe>
+    </div>
+    <div class="detail-fallback">
+      <span>화면이 표시되지 않는다면, 대상 사이트에서 외부 삽입을 막아둔 것일 수 있습니다.</span>
+      <a id="modalOpenNewTab" href="#" target="_blank" rel="noopener" class="btn btn-primary">새 창에서 열기 ↗</a>
+    </div>
+    <div id="modalYtSection" style="display:none;">
+      <div class="section-title-row" style="margin-top:28px;">
+        <h2 style="font-size:18px;">관련 유튜브 영상</h2>
+      </div>
+      <div class="detail-yt-wrap">
+        <iframe id="modalYtFrame" src="" title="유튜브 영상" allowfullscreen loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-data.js"></script>
+<script src="search-ui.js"></script>
+<script src="modal-ui.js"></script>
+</body>
+</html>

@@ -1,0 +1,808 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Clever One 사용법 | Education Archive</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="utility-bar">
+  <div class="inner">
+    <a href="https://vestmall.kr/front/extra/extra_html.php?html=remote" target="_blank" rel="noopener">원격지원</a>
+    <a href="https://vatechmcis.com/" target="_blank" rel="noopener">바텍엠시스 홈페이지 ↗</a>
+  </div>
+</div>
+<div class="site-header">
+  <div class="inner">
+    <a class="logo-link" href="index.html">
+      <div class="logo-group">
+        <div class="logo-chip"><img src="assets/logo-vatechmcis.png" alt="vatech mcis" /></div>
+        <div class="logo-divider"></div>
+        <div class="academy-wordmark"><span class="line2">Education Archive</span></div>
+      </div>
+    </a>
+    <div class="header-row-wrap">
+      <nav class="main-nav">
+        <a href="index.html" class="home-link">아카이브 홈</a>
+        <a href="ez3d-i.html" class="nav-dental">Ez3D-i</a>
+        <a href="ezortho.html" class="nav-dental">EzOrtho</a>
+        <a href="ezdent-i.html" class="nav-dental">EzDent-i</a>
+        <a href="clever-one.html" class="nav-clever-one active">Clever One</a>
+        <a href="clever-lab.html" class="nav-lab">Clever Lab</a>
+      </nav>
+      <div class="header-icons">
+        <a class="reserve-toggle" href="https://www.miricanvas.com/v2/design2/v/1a86edd3-d8cb-4b45-9fa4-6c8b7379f6b5" target="_blank" rel="noopener" aria-label="온라인 교육 예약" title="온라인 교육 예약"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="16" rx="2.5"/><line x1="16" y1="2.5" x2="16" y2="6.5"/><line x1="8" y1="2.5" x2="8" y2="6.5"/><line x1="3" y1="9.5" x2="21" y2="9.5"/><path d="M8.5 14l2 2 4-4"/></svg></a>
+        <button type="button" class="search-toggle" id="searchToggle" aria-label="검색"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="search-overlay" id="searchOverlay">
+  <div class="inner">
+    <span class="close-link" id="searchClose">취소</span>
+    <div class="search-input-row">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="text" id="searchInput" placeholder="콘텐츠 이름, 제품명으로 검색" autocomplete="off" />
+    </div>
+
+    <div id="searchDefault">
+      <div class="search-columns">
+        <div>
+          <div class="col-label">빠른 링크</div>
+          <a href="ez3d-i.html">Ez3D-i</a>
+          <a href="ezortho.html">EzOrtho</a>
+          <a href="ezdent-i.html">EzDent-i</a>
+          <a href="clever-one.html">Clever One</a>
+          <a href="clever-lab.html">Clever Lab</a>
+        </div>
+        <div>
+          <div class="col-label">인기 콘텐츠</div>
+          <div id="popularQuickLinks"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="search-results" id="searchResults" style="display:none;"></div>
+  </div>
+</div>
+<div class="page">
+
+  <section class="hero" style="padding:44px 0 30px;">
+    <p class="eyebrow">Product Training</p>
+    <h1 style="font-size:28px;">Clever One 사용 방법 살펴보기</h1>
+    <p>Clever One 관련 화면별 튜토리얼을 총 35개 콘텐츠로 정리했습니다. 카드를 선택하면 이 페이지 안에서 바로 확인할 수 있습니다.</p>
+  </section>
+
+  <div class="edu-layout">
+    <aside class="edu-sidebar">
+      <span class="filter-tag clever-one">Clever One <span class="x" onclick="location.href='index.html'">✕</span></span>
+
+      <div class="edu-filter-block">
+        <div class="filter-label">정렬 기준</div>
+        <select class="edu-select" id="sortSelect" onchange="sortCards()">
+          <option value="idx">기본순</option>
+          <option value="name">이름순 (가나다)</option>
+        </select>
+      </div>
+
+      <div class="edu-filter-block">
+        <div class="filter-label">콘텐츠 유형</div>
+        <div class="check-list">
+          <label><span class="left"><input type="checkbox" class="type-filter" value="all" checked onchange="onTypeAll(this)"> 전체</span><span class="n">35</span></label>
+          <label><span class="left"><input type="checkbox" class="type-filter" value="youtube" onchange="onTypeFilter()"> 유튜브 포함</span><span class="n">0</span></label>
+        </div>
+      </div>
+
+      <div class="edu-filter-block">
+        <div class="filter-label">검색</div>
+        <input class="filter-search" id="search" type="text" placeholder="항목 이름으로 검색..." oninput="filterItems()"
+          style="width:100%; padding:10px 12px; border:1.5px solid var(--line); border-radius:var(--radius); font-size:14.5px; outline:none;" />
+      </div>
+
+      <div class="edu-filter-block">
+        <div class="filter-label">다른 제품 보기</div>
+        <div class="edu-tree"><a href="ez3d-i.html">Ez3D-i<span class="n">(18)</span></a><a href="ezortho.html">EzOrtho<span class="n">(8)</span></a><a href="ezdent-i.html">EzDent-i<span class="n">(15)</span></a><a href="clever-lab.html">Clever Lab<span class="n">(19)</span></a></div>
+      </div>
+    </aside>
+
+    <div class="edu-main">
+      <div class="edu-count">전체 <strong id="visibleCount">35</strong>개 콘텐츠</div>
+      <div class="video-grid" id="grid">
+        
+        <div class="video-card" data-name="수진자 관리" data-url="https://www.miricanvas.com/ko/v/15f36hu" data-idx="1" data-yt="0"
+             onclick="openContentModal('https://www.miricanvas.com/ko/v/15f36hu','수진자 관리','Clever One','')" role="button" tabindex="0"
+             onkeydown="if(event.key==='Enter'){openContentModal('https://www.miricanvas.com/ko/v/15f36hu','수진자 관리','Clever One','');}">
+          <div class="video-thumb clever-one">
+            <span class="motif-line"></span><span class="motif-dot"></span>
+            <span class="motif-word">Clever One</span>
+            <span class="thumb-idx">01 / 35</span>
+          </div>
+          <div class="video-body">
+            <div class="v-title">수진자 관리</div>
+            <div class="v-desc">수진자 관리 화면의 사용 방법을 단계별로 확인할 수 있는 튜토리얼입니다.</div>
+            <div class="v-meta"></div>
+            <div class="v-actions">
+              <span class="pill-btn clever-one-line" onclick="event.stopPropagation(); openContentModal('https://www.miricanvas.com/ko/v/15f36hu','수진자 관리','Clever One','');">자세히 보기</span>
+            </div>
+          </div>
+        </div>
+        <div class="video-card" data-name="영상 내보내기/불러오기 (외부 영상 저장하기)" data-url="https://www.miricanvas.com/ko/v/15f3cm4" data-idx="2" data-yt="0"
+             onclick="openContentModal('https://www.miricanvas.com/ko/v/15f3cm4','영상 내보내기/불러오기 (외부 영상 저장하기)','Clever One','')" role="button" tabindex="0"
+             onkeydown="if(event.key==='Enter'){openContentModal('https://www.miricanvas.com/ko/v/15f3cm4','영상 내보내기/불러오기 (외부 영상 저장하기)','Clever One','');}">
+          <div class="video-thumb clever-one">
+            <span class="motif-line"></span><span class="motif-dot"></span>
+            <span class="motif-word">Clever One</span>
+            <span class="thumb-idx">02 / 35</span>
+          </div>
+          <div class="video-body">
+            <div class="v-title">영상 내보내기/불러오기 (외부 영상 저장하기)</div>
+            <div class="v-desc">영상 내보내기/불러오기 (외부 영상 저장하기) 화면의 사용 방법을 단계별로 확인할 수 있는 튜토리얼입니다.</div>
+            <div class="v-meta"></div>
+            <div class="v-actions">
+              <span class="pill-btn clever-one-line" onclick="event.stopPropagation(); openContentModal('https://www.miricanvas.com/ko/v/15f3cm4','영상 내보내기/불러오기 (외부 영상 저장하기)','Clever One','');">자세히 보기</span>
+            </div>
+          </div>
+        </div>
+        <div class="video-card" data-name="영상 관리 (이동, 삭제, 편집)" data-url="https://www.miricanvas.com/ko/v/15faw0a" data-idx="3" data-yt="0"
+             onclick="openContentModal('https://www.miricanvas.com/ko/v/15faw0a','영상 관리 (이동, 삭제, 편집)','Clever One','')" role="button" tabindex="0"
+             onkeydown="if(event.key==='Enter'){openContentModal('https://www.miricanvas.com/ko/v/15faw0a','영상 관리 (이동, 삭제, 편집)','Clever One','');}">
+          <div class="video-thumb clever-one">
+            <span class="motif-line"></span><span class="motif-dot"></span>
+            <span class="motif-word">Clever One</span>
+            <span class="thumb-idx">03 / 35</span>
+          </div>
+          <div class="video-body">
+            <div class="v-title">영상 관리 (이동, 삭제, 편집)</div>
+            <div class="v-desc">영상 관리 (이동, 삭제, 편집) 화면의 사용 방법을 단계별로 확인할 수 있는 튜토리얼입니다.</div>
+            <div class="v-meta"></div>
+            <div class="v-actions">
+              <span class="pill-btn clever-one-line" onclick="event.stopPropagation(); openContentModal('https://www.miricanvas.com/ko/v/15faw0a','영상 관리 (이동, 삭제, 편집)','Clever One','');">자세히 보기</span>
+            </div>
+          </div>
+        </div>
+        <div class="video-card" data-name="레이아웃 변경하기" data-url="https://www.miricanvas.com/ko/v/15fb8t7" data-idx="4" data-yt="0"
+             onclick="openContentModal('https://www.miricanvas.com/ko/v/15fb8t7','레이아웃 변경하기','Clever One','')" role="button" tabindex="0"
+             onkeydown="if(event.key==='Enter'){openContentModal('https://www.miricanvas.com/ko/v/15fb8t7','레이아웃 변경하기','Clever One','');}">
+          <div class="video-thumb clever-one">
+            <span class="motif-line"></span><span class="motif-dot"></span>
+            <span class="motif-word">Clever One</span>
+            <span class="thumb-idx">04 / 35</span>
+          </div>
+          <div class="video-body">
+            <div class="v-title">레이아웃 변경하기</div>
+            <div class="v-desc">레이아웃 변경하기 화면의 사용 방법을 단계별로 확인할 수 있는 튜토리얼입니다.</div>
+            <div class="v-meta"></div>
+            <div class="v-actions">
+              <span class="pill-btn clever-one-line" onclick="event.stopPropagation(); openContentModal('https://www.miricanvas.com/ko/v/15fb8t7','레이아웃 변경하기','Clever One','');">자세히 보기</span>
+            </div>
+          </div>
+        </div>
+        <div class="video-card" data-name="2d 임플란트/크라운 시뮬레이션" data-url="https://www.miricanvas.com/ko/v/15fb5w8" data-idx="5" data-yt="0"
+             onclick="openContentModal('https://www.miricanvas.com/ko/v/15fb5w8','2D 임플란트/크라운 시뮬레이션','Clever One','')" role="button" tabindex="0"
+             onkeydown="if(event.key==='Enter'){openContentModal('https://www.miricanvas.com/ko/v/15fb5w8','2D 임플란트/크라운 시뮬레이션','Clever One','');}">
+          <div class="video-thumb clever-one">
+            <span class="motif-line"></span><span class="motif-dot"></span>
+            <span class="motif-word">Clever One</span>
+            <span class="thumb-idx">05 / 35</span>
+          </div>
+          <div class="video-body">
+            <div class="v-title">2D 임플란트/크라운 시뮬레이션</div>
+            <div class="v-desc">2D 임플란트/크라운 시뮬레이션 화면의 사용 방법을 단계별로 확인할 수 있는 튜토리얼입니다.</div>
+            <div class="v-meta"></div>
+            <div class="v-actions">
+              <span class="pill-btn clever-one-line" onclick="event.stopPropagation(); openContentModal('https://www.miricanvas.com/ko/v/15fb5w8','2D 임플란트/크라운 시뮬레이션','Clever One','');">자세히 보기</span>
+            </div>
+          </div>
+        </div>
+        <div class="video-card" data-name="2d 도구" data-url="https://www.miricanvas.com/ko/v/15fbb2r" data-idx="6" data-yt="0"
+             onclick="openContentModal('https://www.miricanvas.com/ko/v/15fbb2r','2D 도구','Clever One','')" role="button" tabindex="0"
+             onkeydown="if(event.key==='Enter'){openContentModal('https://www.miricanvas.com/ko/v/15fbb2r','2D 도구','Clever One','');}">
+          <div class="video-thumb clever-one">
+            <span class="motif-line"></span><span class="motif-dot"></span>
+            <span class="motif-word">Clever One</span>
+            <span class="thumb-idx">06 / 35</span>
+          </div>
+          <div class="video-body">
+            <div class="v-title">2D 도구</div>
+            <div class="v-desc">2D 도구 화면의 사용 방법을 단계별로 확인할 수 있는 튜토리얼입니다.</div>
+            <div class="v-meta"></div>
+            <div class="v-actions">
+              <span class="pill-btn clever-one-line" onclick="event.stopPropagation(); openContentModal('https://www.miricanvas.com/ko/v/15fbb2r','2D 도구','Clever One','');">자세히 보기</span>
+            </div>
+          </div>
+        </div>
+        <div class="video-card" data-name="2d 영상과 ct영상 함께 보기" data-url="https://www.miricanvas.com/ko/v/15fba53" data-idx="7" data-yt="0"
+             onclick="openContentModal('https://www.miricanvas.com/ko/v/15fba53','2D 영상과 CT영상 함께 보기','Clever One','')" role="button" tabindex="0"
+             onkeydown="if(event.key==='Enter'){openContentModal('https://www.miricanvas.com/ko/v/15fba53','2D 영상과 CT영상 함께 보기','Clever One','');}">
+          <div class="video-thumb clever-one">
+            <span class="motif-line"></span><span class="motif-dot"></span>
+            <span class="motif-word">Clever One</span>
+            <span class="thumb-idx">07 / 35</span>
+          </div>
+          <div class="video-body">
+            <div class="v-title">2D 영상과 CT영상 함께 보기</div>
+            <div class="v-desc">2D 영상과 CT영상 함께 보기 화면의 사용 방법을 단계별로 확인할 수 있는 튜토리얼입니다.</div>
+            <div class="v-meta"></div>
+            <div class="v-actions">
+              <span class="pill-btn clever-one-line" onclick="event.stopPropagation(); openContentModal('https://www.miricanvas.com/ko/v/15fba53','2D 영상과 CT영상 함께 보기','Clever One','');">자세히 보기</span>
+            </div>
+          </div>
+        </div>
+        <div class="video-card" data-name="파노라마 병증 검출" data-url="https://www.miricanvas.com/ko/v/15fbd12" data-idx="8" data-yt="0"
+             onclick="openContentModal('https://www.miricanvas.com/ko/v/15fbd12','파노라마 병증 검출','Clever One','')" role="button" tabindex="0"
+             onkeydown="if(event.key==='Enter'){openContentModal('https://www.miricanvas.com/ko/v/15fbd12','파노라마 병증 검출','Clever One','');}">
+          <div class="video-thumb clever-one">
+            <span class="motif-line"></span><span class="motif-dot"></span>
+            <span class="motif-word">Clever One</span>
+            <span class="thumb-idx">08 / 35</span>
+          </div>
+          <div class="video-body">
+            <div class="v-title">파노라마 병증 검출</div>
+            <div class="v-desc">파노라마 병증 검출 화면의 사용 방법을 단계별로 확인할 수 있는 튜토리얼입니다.</div>
+            <div class="v-meta"></div>
+            <div class="v-actions">
+              <span class="pill-btn clever-one-line" onclick="event.stopPropagation(); openContentModal('https://www.miricanvas.com/ko/v/15fbd12','파노라마 병증 검출','Clever One','');">자세히 보기</span>
+            </div>
+          </div>
+        </div>
+        <div class="video-card" data-name="mpr 축 설정" data-url="https://www.miricanvas.com/ko/v/15fffzy" data-idx="9" data-yt="0"
+             onclick="openContentModal('https://www.miricanvas.com/ko/v/15fffzy','MPR 축 설정','Clever One','')" role="button" tabindex="0"
+             onkeydown="if(event.key==='Enter'){openContentModal('https://www.miricanvas.com/ko/v/15fffzy','MPR 축 설정','Clever One','');}">
+          <div class="video-thumb clever-one">
+            <span class="motif-line"></span><span class="motif-dot"></span>
+            <span class="motif-word">Clever One</span>
+            <span class="thumb-idx">09 / 35</span>
+          </div>
+          <div class="video-body">
+            <div class="v-title">MPR 축 설정</div>
+            <div class="v-desc">MPR 축 설정 화면의 사용 방법을 단계별로 확인할 수 있는 튜토리얼입니다.</div>
+            <div class="v-meta"></div>
+            <div class="v-actions">
+              <span class="pill-btn clever-one-line" onclick="event.stopPropagation(); openContentModal('https://www.miricanvas.com/ko/v/15fffzy','MPR 축 설정','Clever One','');">자세히 보기</span>
+            </div>
+          </div>
+        </div>
+        <div class="video-card" data-name="레이아웃 변경" data-url="https://www.miricanvas.com/ko/v/15fgcey" data-idx="10" data-yt="0"
+             onclick="openContentModal('https://www.miricanvas.com/ko/v/15fgcey','레이아웃 변경','Clever One','')" role="button" tabindex="0"
+             onkeydown="if(event.key==='Enter'){openContentModal('https://www.miricanvas.com/ko/v/15fgcey','레이아웃 변경','Clever One','');}">
+          <div class="video-thumb clever-one">
+            <span class="motif-line"></span><span class="motif-dot"></span>
+            <span class="motif-word">Clever One</span>
+            <span class="thumb-idx">10 / 35</span>
+          </div>
+          <div class="video-body">
+            <div class="v-title">레이아웃 변경</div>
+            <div class="v-desc">레이아웃 변경 화면의 사용 방법을 단계별로 확인할 수 있는 튜토리얼입니다.</div>
+            <div class="v-meta"></div>
+            <div class="v-actions">
+              <span class="pill-btn clever-one-line" onclick="event.stopPropagation(); openContentModal('https://www.miricanvas.com/ko/v/15fgcey','레이아웃 변경','Clever One','');">자세히 보기</span>
+            </div>
+          </div>
+        </div>
+        <div class="video-card" data-name="세그먼트 데이터 확인 (수동 세그먼테이션 요청하기)" data-url="https://www.miricanvas.com/ko/v/15fgn6e" data-idx="11" data-yt="0"
+             onclick="openContentModal('https://www.miricanvas.com/ko/v/15fgn6e','세그먼트 데이터 확인 (수동 세그먼테이션 요청하기)','Clever One','')" role="button" tabindex="0"
+             onkeydown="if(event.key==='Enter'){openContentModal('https://www.miricanvas.com/ko/v/15fgn6e','세그먼트 데이터 확인 (수동 세그먼테이션 요청하기)','Clever One','');}">
+          <div class="video-thumb clever-one">
+            <span class="motif-line"></span><span class="motif-dot"></span>
+            <span class="motif-word">Clever One</span>
+            <span class="thumb-idx">11 / 35</span>
+          </div>
+          <div class="video-body">
+            <div class="v-title">세그먼트 데이터 확인 (수동 세그먼테이션 요청하기)</div>
+            <div class="v-desc">세그먼트 데이터 확인 (수동 세그먼테이션 요청하기) 화면의 사용 방법을 단계별로 확인할 수 있는 튜토리얼입니다.</div>
+            <div class="v-meta"></div>
+            <div class="v-actions">
+              <span class="pill-btn clever-one-line" onclick="event.stopPropagation(); openContentModal('https://www.miricanvas.com/ko/v/15fgn6e','세그먼트 데이터 확인 (수동 세그먼테이션 요청하기)','Clever One','');">자세히 보기</span>
+            </div>
+          </div>
+        </div>
+        <div class="video-card" data-name="3d 도구" data-url="https://www.miricanvas.com/ko/v/15fh70k" data-idx="12" data-yt="0"
+             onclick="openContentModal('https://www.miricanvas.com/ko/v/15fh70k','3D 도구','Clever One','')" role="button" tabindex="0"
+             onkeydown="if(event.key==='Enter'){openContentModal('https://www.miricanvas.com/ko/v/15fh70k','3D 도구','Clever One','');}">
+          <div class="video-thumb clever-one">
+            <span class="motif-line"></span><span class="motif-dot"></span>
+            <span class="motif-word">Clever One</span>
+            <span class="thumb-idx">12 / 35</span>
+          </div>
+          <div class="video-body">
+            <div class="v-title">3D 도구</div>
+            <div class="v-desc">3D 도구 화면의 사용 방법을 단계별로 확인할 수 있는 튜토리얼입니다.</div>
+            <div class="v-meta"></div>
+            <div class="v-actions">
+              <span class="pill-btn clever-one-line" onclick="event.stopPropagation(); openContentModal('https://www.miricanvas.com/ko/v/15fh70k','3D 도구','Clever One','');">자세히 보기</span>
+            </div>
+          </div>
+        </div>
+        <div class="video-card" data-name="발치 시뮬레이션" data-url="https://www.miricanvas.com/ko/v/15fhbot" data-idx="13" data-yt="0"
+             onclick="openContentModal('https://www.miricanvas.com/ko/v/15fhbot','발치 시뮬레이션','Clever One','')" role="button" tabindex="0"
+             onkeydown="if(event.key==='Enter'){openContentModal('https://www.miricanvas.com/ko/v/15fhbot','발치 시뮬레이션','Clever One','');}">
+          <div class="video-thumb clever-one">
+            <span class="motif-line"></span><span class="motif-dot"></span>
+            <span class="motif-word">Clever One</span>
+            <span class="thumb-idx">13 / 35</span>
+          </div>
+          <div class="video-body">
+            <div class="v-title">발치 시뮬레이션</div>
+            <div class="v-desc">발치 시뮬레이션 화면의 사용 방법을 단계별로 확인할 수 있는 튜토리얼입니다.</div>
+            <div class="v-meta"></div>
+            <div class="v-actions">
+              <span class="pill-btn clever-one-line" onclick="event.stopPropagation(); openContentModal('https://www.miricanvas.com/ko/v/15fhbot','발치 시뮬레이션','Clever One','');">자세히 보기</span>
+            </div>
+          </div>
+        </div>
+        <div class="video-card" data-name="상악 임플란트 시뮬레이션(sinus 자동 측정)" data-url="https://www.miricanvas.com/ko/v/15fhc4n" data-idx="14" data-yt="0"
+             onclick="openContentModal('https://www.miricanvas.com/ko/v/15fhc4n','상악 임플란트 시뮬레이션(Sinus 자동 측정)','Clever One','')" role="button" tabindex="0"
+             onkeydown="if(event.key==='Enter'){openContentModal('https://www.miricanvas.com/ko/v/15fhc4n','상악 임플란트 시뮬레이션(Sinus 자동 측정)','Clever One','');}">
+          <div class="video-thumb clever-one">
+            <span class="motif-line"></span><span class="motif-dot"></span>
+            <span class="motif-word">Clever One</span>
+            <span class="thumb-idx">14 / 35</span>
+          </div>
+          <div class="video-body">
+            <div class="v-title">상악 임플란트 시뮬레이션(Sinus 자동 측정)</div>
+            <div class="v-desc">상악 임플란트 시뮬레이션(Sinus 자동 측정) 화면의 사용 방법을 단계별로 확인할 수 있는 튜토리얼입니다.</div>
+            <div class="v-meta"></div>
+            <div class="v-actions">
+              <span class="pill-btn clever-one-line" onclick="event.stopPropagation(); openContentModal('https://www.miricanvas.com/ko/v/15fhc4n','상악 임플란트 시뮬레이션(Sinus 자동 측정)','Clever One','');">자세히 보기</span>
+            </div>
+          </div>
+        </div>
+        <div class="video-card" data-name="하악 임플란트 시뮬레이션(하치조신경관 자동 거리 측정)" data-url="https://www.miricanvas.com/ko/v/15fiixv" data-idx="15" data-yt="0"
+             onclick="openContentModal('https://www.miricanvas.com/ko/v/15fiixv','하악 임플란트 시뮬레이션(하치조신경관 자동 거리 측정)','Clever One','')" role="button" tabindex="0"
+             onkeydown="if(event.key==='Enter'){openContentModal('https://www.miricanvas.com/ko/v/15fiixv','하악 임플란트 시뮬레이션(하치조신경관 자동 거리 측정)','Clever One','');}">
+          <div class="video-thumb clever-one">
+            <span class="motif-line"></span><span class="motif-dot"></span>
+            <span class="motif-word">Clever One</span>
+            <span class="thumb-idx">15 / 35</span>
+          </div>
+          <div class="video-body">
+            <div class="v-title">하악 임플란트 시뮬레이션(하치조신경관 자동 거리 측정)</div>
+            <div class="v-desc">하악 임플란트 시뮬레이션(하치조신경관 자동 거리 측정) 화면의 사용 방법을 단계별로 확인할 수 있는 튜토리얼입니다.</div>
+            <div class="v-meta"></div>
+            <div class="v-actions">
+              <span class="pill-btn clever-one-line" onclick="event.stopPropagation(); openContentModal('https://www.miricanvas.com/ko/v/15fiixv','하악 임플란트 시뮬레이션(하치조신경관 자동 거리 측정)','Clever One','');">자세히 보기</span>
+            </div>
+          </div>
+        </div>
+        <div class="video-card" data-name="골밀도 측정 &amp; 볼륨 측정" data-url="https://www.miricanvas.com/ko/v/15fnxbt" data-idx="16" data-yt="0"
+             onclick="openContentModal('https://www.miricanvas.com/ko/v/15fnxbt','골밀도 측정 &amp; 볼륨 측정','Clever One','')" role="button" tabindex="0"
+             onkeydown="if(event.key==='Enter'){openContentModal('https://www.miricanvas.com/ko/v/15fnxbt','골밀도 측정 &amp; 볼륨 측정','Clever One','');}">
+          <div class="video-thumb clever-one">
+            <span class="motif-line"></span><span class="motif-dot"></span>
+            <span class="motif-word">Clever One</span>
+            <span class="thumb-idx">16 / 35</span>
+          </div>
+          <div class="video-body">
+            <div class="v-title">골밀도 측정 &amp; 볼륨 측정</div>
+            <div class="v-desc">골밀도 측정 &amp; 볼륨 측정 화면의 사용 방법을 단계별로 확인할 수 있는 튜토리얼입니다.</div>
+            <div class="v-meta"></div>
+            <div class="v-actions">
+              <span class="pill-btn clever-one-line" onclick="event.stopPropagation(); openContentModal('https://www.miricanvas.com/ko/v/15fnxbt','골밀도 측정 &amp; 볼륨 측정','Clever One','');">자세히 보기</span>
+            </div>
+          </div>
+        </div>
+        <div class="video-card" data-name="임플란트 가이드 제작" data-url="https://www.miricanvas.com/ko/v/15f346s" data-idx="17" data-yt="0"
+             onclick="openContentModal('https://www.miricanvas.com/ko/v/15f346s','임플란트 가이드 제작','Clever One','')" role="button" tabindex="0"
+             onkeydown="if(event.key==='Enter'){openContentModal('https://www.miricanvas.com/ko/v/15f346s','임플란트 가이드 제작','Clever One','');}">
+          <div class="video-thumb clever-one">
+            <span class="motif-line"></span><span class="motif-dot"></span>
+            <span class="motif-word">Clever One</span>
+            <span class="thumb-idx">17 / 35</span>
+          </div>
+          <div class="video-body">
+            <div class="v-title">임플란트 가이드 제작</div>
+            <div class="v-desc">임플란트 가이드 제작 화면의 사용 방법을 단계별로 확인할 수 있는 튜토리얼입니다.</div>
+            <div class="v-meta"></div>
+            <div class="v-actions">
+              <span class="pill-btn clever-one-line" onclick="event.stopPropagation(); openContentModal('https://www.miricanvas.com/ko/v/15f346s','임플란트 가이드 제작','Clever One','');">자세히 보기</span>
+            </div>
+          </div>
+        </div>
+        <div class="video-card" data-name="io scan / 3d photo 자동 정합" data-url="https://www.miricanvas.com/ko/v/15ffc9f" data-idx="18" data-yt="0"
+             onclick="openContentModal('https://www.miricanvas.com/ko/v/15ffc9f','IO Scan / 3D Photo 자동 정합','Clever One','')" role="button" tabindex="0"
+             onkeydown="if(event.key==='Enter'){openContentModal('https://www.miricanvas.com/ko/v/15ffc9f','IO Scan / 3D Photo 자동 정합','Clever One','');}">
+          <div class="video-thumb clever-one">
+            <span class="motif-line"></span><span class="motif-dot"></span>
+            <span class="motif-word">Clever One</span>
+            <span class="thumb-idx">18 / 35</span>
+          </div>
+          <div class="video-body">
+            <div class="v-title">IO Scan / 3D Photo 자동 정합</div>
+            <div class="v-desc">IO Scan / 3D Photo 자동 정합 화면의 사용 방법을 단계별로 확인할 수 있는 튜토리얼입니다.</div>
+            <div class="v-meta"></div>
+            <div class="v-actions">
+              <span class="pill-btn clever-one-line" onclick="event.stopPropagation(); openContentModal('https://www.miricanvas.com/ko/v/15ffc9f','IO Scan / 3D Photo 자동 정합','Clever One','');">자세히 보기</span>
+            </div>
+          </div>
+        </div>
+        <div class="video-card" data-name="2nd ct 확인 &amp; 2d 영상 함께 보기" data-url="https://www.miricanvas.com/ko/v/15fhf6n" data-idx="19" data-yt="0"
+             onclick="openContentModal('https://www.miricanvas.com/ko/v/15fhf6n','2nd CT 확인 &amp; 2D 영상 함께 보기','Clever One','')" role="button" tabindex="0"
+             onkeydown="if(event.key==='Enter'){openContentModal('https://www.miricanvas.com/ko/v/15fhf6n','2nd CT 확인 &amp; 2D 영상 함께 보기','Clever One','');}">
+          <div class="video-thumb clever-one">
+            <span class="motif-line"></span><span class="motif-dot"></span>
+            <span class="motif-word">Clever One</span>
+            <span class="thumb-idx">19 / 35</span>
+          </div>
+          <div class="video-body">
+            <div class="v-title">2nd CT 확인 &amp; 2D 영상 함께 보기</div>
+            <div class="v-desc">2nd CT 확인 &amp; 2D 영상 함께 보기 화면의 사용 방법을 단계별로 확인할 수 있는 튜토리얼입니다.</div>
+            <div class="v-meta"></div>
+            <div class="v-actions">
+              <span class="pill-btn clever-one-line" onclick="event.stopPropagation(); openContentModal('https://www.miricanvas.com/ko/v/15fhf6n','2nd CT 확인 &amp; 2D 영상 함께 보기','Clever One','');">자세히 보기</span>
+            </div>
+          </div>
+        </div>
+        <div class="video-card" data-name="수동 하치조신경관 그리기" data-url="https://www.miricanvas.com/ko/v/15fhdj3" data-idx="20" data-yt="0"
+             onclick="openContentModal('https://www.miricanvas.com/ko/v/15fhdj3','수동 하치조신경관 그리기','Clever One','')" role="button" tabindex="0"
+             onkeydown="if(event.key==='Enter'){openContentModal('https://www.miricanvas.com/ko/v/15fhdj3','수동 하치조신경관 그리기','Clever One','');}">
+          <div class="video-thumb clever-one">
+            <span class="motif-line"></span><span class="motif-dot"></span>
+            <span class="motif-word">Clever One</span>
+            <span class="thumb-idx">20 / 35</span>
+          </div>
+          <div class="video-body">
+            <div class="v-title">수동 하치조신경관 그리기</div>
+            <div class="v-desc">수동 하치조신경관 그리기 화면의 사용 방법을 단계별로 확인할 수 있는 튜토리얼입니다.</div>
+            <div class="v-meta"></div>
+            <div class="v-actions">
+              <span class="pill-btn clever-one-line" onclick="event.stopPropagation(); openContentModal('https://www.miricanvas.com/ko/v/15fhdj3','수동 하치조신경관 그리기','Clever One','');">자세히 보기</span>
+            </div>
+          </div>
+        </div>
+        <div class="video-card" data-name="clipping &amp; 자르기" data-url="https://www.miricanvas.com/ko/v/15fp3ja" data-idx="21" data-yt="0"
+             onclick="openContentModal('https://www.miricanvas.com/ko/v/15fp3ja','Clipping &amp; 자르기','Clever One','')" role="button" tabindex="0"
+             onkeydown="if(event.key==='Enter'){openContentModal('https://www.miricanvas.com/ko/v/15fp3ja','Clipping &amp; 자르기','Clever One','');}">
+          <div class="video-thumb clever-one">
+            <span class="motif-line"></span><span class="motif-dot"></span>
+            <span class="motif-word">Clever One</span>
+            <span class="thumb-idx">21 / 35</span>
+          </div>
+          <div class="video-body">
+            <div class="v-title">Clipping &amp; 자르기</div>
+            <div class="v-desc">Clipping &amp; 자르기 화면의 사용 방법을 단계별로 확인할 수 있는 튜토리얼입니다.</div>
+            <div class="v-meta"></div>
+            <div class="v-actions">
+              <span class="pill-btn clever-one-line" onclick="event.stopPropagation(); openContentModal('https://www.miricanvas.com/ko/v/15fp3ja','Clipping &amp; 자르기','Clever One','');">자세히 보기</span>
+            </div>
+          </div>
+        </div>
+        <div class="video-card" data-name="airway 측정" data-url="https://www.miricanvas.com/ko/v/15fhax9" data-idx="22" data-yt="0"
+             onclick="openContentModal('https://www.miricanvas.com/ko/v/15fhax9','Airway 측정','Clever One','')" role="button" tabindex="0"
+             onkeydown="if(event.key==='Enter'){openContentModal('https://www.miricanvas.com/ko/v/15fhax9','Airway 측정','Clever One','');}">
+          <div class="video-thumb clever-one">
+            <span class="motif-line"></span><span class="motif-dot"></span>
+            <span class="motif-word">Clever One</span>
+            <span class="thumb-idx">22 / 35</span>
+          </div>
+          <div class="video-body">
+            <div class="v-title">Airway 측정</div>
+            <div class="v-desc">Airway 측정 화면의 사용 방법을 단계별로 확인할 수 있는 튜토리얼입니다.</div>
+            <div class="v-meta"></div>
+            <div class="v-actions">
+              <span class="pill-btn clever-one-line" onclick="event.stopPropagation(); openContentModal('https://www.miricanvas.com/ko/v/15fhax9','Airway 측정','Clever One','');">자세히 보기</span>
+            </div>
+          </div>
+        </div>
+        <div class="video-card" data-name="reorientation" data-url="https://www.miricanvas.com/ko/v/15fgg1q" data-idx="23" data-yt="0"
+             onclick="openContentModal('https://www.miricanvas.com/ko/v/15fgg1q','Reorientation','Clever One','')" role="button" tabindex="0"
+             onkeydown="if(event.key==='Enter'){openContentModal('https://www.miricanvas.com/ko/v/15fgg1q','Reorientation','Clever One','');}">
+          <div class="video-thumb clever-one">
+            <span class="motif-line"></span><span class="motif-dot"></span>
+            <span class="motif-word">Clever One</span>
+            <span class="thumb-idx">23 / 35</span>
+          </div>
+          <div class="video-body">
+            <div class="v-title">Reorientation</div>
+            <div class="v-desc">Reorientation 화면의 사용 방법을 단계별로 확인할 수 있는 튜토리얼입니다.</div>
+            <div class="v-meta"></div>
+            <div class="v-actions">
+              <span class="pill-btn clever-one-line" onclick="event.stopPropagation(); openContentModal('https://www.miricanvas.com/ko/v/15fgg1q','Reorientation','Clever One','');">자세히 보기</span>
+            </div>
+          </div>
+        </div>
+        <div class="video-card" data-name="surface 모델 내보내기" data-url="https://www.miricanvas.com/ko/v/15fbrwu" data-idx="24" data-yt="0"
+             onclick="openContentModal('https://www.miricanvas.com/ko/v/15fbrwu','Surface 모델 내보내기','Clever One','')" role="button" tabindex="0"
+             onkeydown="if(event.key==='Enter'){openContentModal('https://www.miricanvas.com/ko/v/15fbrwu','Surface 모델 내보내기','Clever One','');}">
+          <div class="video-thumb clever-one">
+            <span class="motif-line"></span><span class="motif-dot"></span>
+            <span class="motif-word">Clever One</span>
+            <span class="thumb-idx">24 / 35</span>
+          </div>
+          <div class="video-body">
+            <div class="v-title">Surface 모델 내보내기</div>
+            <div class="v-desc">Surface 모델 내보내기 화면의 사용 방법을 단계별로 확인할 수 있는 튜토리얼입니다.</div>
+            <div class="v-meta"></div>
+            <div class="v-actions">
+              <span class="pill-btn clever-one-line" onclick="event.stopPropagation(); openContentModal('https://www.miricanvas.com/ko/v/15fbrwu','Surface 모델 내보내기','Clever One','');">자세히 보기</span>
+            </div>
+          </div>
+        </div>
+        <div class="video-card" data-name="recon ceph 내보내기" data-url="https://www.miricanvas.com/ko/v/15fbprh" data-idx="25" data-yt="0"
+             onclick="openContentModal('https://www.miricanvas.com/ko/v/15fbprh','Recon Ceph 내보내기','Clever One','')" role="button" tabindex="0"
+             onkeydown="if(event.key==='Enter'){openContentModal('https://www.miricanvas.com/ko/v/15fbprh','Recon Ceph 내보내기','Clever One','');}">
+          <div class="video-thumb clever-one">
+            <span class="motif-line"></span><span class="motif-dot"></span>
+            <span class="motif-word">Clever One</span>
+            <span class="thumb-idx">25 / 35</span>
+          </div>
+          <div class="video-body">
+            <div class="v-title">Recon Ceph 내보내기</div>
+            <div class="v-desc">Recon Ceph 내보내기 화면의 사용 방법을 단계별로 확인할 수 있는 튜토리얼입니다.</div>
+            <div class="v-meta"></div>
+            <div class="v-actions">
+              <span class="pill-btn clever-one-line" onclick="event.stopPropagation(); openContentModal('https://www.miricanvas.com/ko/v/15fbprh','Recon Ceph 내보내기','Clever One','');">자세히 보기</span>
+            </div>
+          </div>
+        </div>
+        <div class="video-card" data-name="section 활용하기" data-url="https://www.miricanvas.com/ko/v/15ff67s" data-idx="26" data-yt="0"
+             onclick="openContentModal('https://www.miricanvas.com/ko/v/15ff67s','Section 활용하기','Clever One','')" role="button" tabindex="0"
+             onkeydown="if(event.key==='Enter'){openContentModal('https://www.miricanvas.com/ko/v/15ff67s','Section 활용하기','Clever One','');}">
+          <div class="video-thumb clever-one">
+            <span class="motif-line"></span><span class="motif-dot"></span>
+            <span class="motif-word">Clever One</span>
+            <span class="thumb-idx">26 / 35</span>
+          </div>
+          <div class="video-body">
+            <div class="v-title">Section 활용하기</div>
+            <div class="v-desc">Section 활용하기 화면의 사용 방법을 단계별로 확인할 수 있는 튜토리얼입니다.</div>
+            <div class="v-meta"></div>
+            <div class="v-actions">
+              <span class="pill-btn clever-one-line" onclick="event.stopPropagation(); openContentModal('https://www.miricanvas.com/ko/v/15ff67s','Section 활용하기','Clever One','');">자세히 보기</span>
+            </div>
+          </div>
+        </div>
+        <div class="video-card" data-name="3d 파노라마 활용하기" data-url="https://www.miricanvas.com/ko/v/15feqyi" data-idx="27" data-yt="0"
+             onclick="openContentModal('https://www.miricanvas.com/ko/v/15feqyi','3D 파노라마 활용하기','Clever One','')" role="button" tabindex="0"
+             onkeydown="if(event.key==='Enter'){openContentModal('https://www.miricanvas.com/ko/v/15feqyi','3D 파노라마 활용하기','Clever One','');}">
+          <div class="video-thumb clever-one">
+            <span class="motif-line"></span><span class="motif-dot"></span>
+            <span class="motif-word">Clever One</span>
+            <span class="thumb-idx">27 / 35</span>
+          </div>
+          <div class="video-body">
+            <div class="v-title">3D 파노라마 활용하기</div>
+            <div class="v-desc">3D 파노라마 활용하기 화면의 사용 방법을 단계별로 확인할 수 있는 튜토리얼입니다.</div>
+            <div class="v-meta"></div>
+            <div class="v-actions">
+              <span class="pill-btn clever-one-line" onclick="event.stopPropagation(); openContentModal('https://www.miricanvas.com/ko/v/15feqyi','3D 파노라마 활용하기','Clever One','');">자세히 보기</span>
+            </div>
+          </div>
+        </div>
+        <div class="video-card" data-name="endo 활용하기" data-url="https://www.miricanvas.com/ko/v/15fd8e3" data-idx="28" data-yt="0"
+             onclick="openContentModal('https://www.miricanvas.com/ko/v/15fd8e3','Endo 활용하기','Clever One','')" role="button" tabindex="0"
+             onkeydown="if(event.key==='Enter'){openContentModal('https://www.miricanvas.com/ko/v/15fd8e3','Endo 활용하기','Clever One','');}">
+          <div class="video-thumb clever-one">
+            <span class="motif-line"></span><span class="motif-dot"></span>
+            <span class="motif-word">Clever One</span>
+            <span class="thumb-idx">28 / 35</span>
+          </div>
+          <div class="video-body">
+            <div class="v-title">Endo 활용하기</div>
+            <div class="v-desc">Endo 활용하기 화면의 사용 방법을 단계별로 확인할 수 있는 튜토리얼입니다.</div>
+            <div class="v-meta"></div>
+            <div class="v-actions">
+              <span class="pill-btn clever-one-line" onclick="event.stopPropagation(); openContentModal('https://www.miricanvas.com/ko/v/15fd8e3','Endo 활용하기','Clever One','');">자세히 보기</span>
+            </div>
+          </div>
+        </div>
+        <div class="video-card" data-name="tmj 영역 설정하기" data-url="https://www.miricanvas.com/ko/v/15fcgbo" data-idx="29" data-yt="0"
+             onclick="openContentModal('https://www.miricanvas.com/ko/v/15fcgbo','TMJ 영역 설정하기','Clever One','')" role="button" tabindex="0"
+             onkeydown="if(event.key==='Enter'){openContentModal('https://www.miricanvas.com/ko/v/15fcgbo','TMJ 영역 설정하기','Clever One','');}">
+          <div class="video-thumb clever-one">
+            <span class="motif-line"></span><span class="motif-dot"></span>
+            <span class="motif-word">Clever One</span>
+            <span class="thumb-idx">29 / 35</span>
+          </div>
+          <div class="video-body">
+            <div class="v-title">TMJ 영역 설정하기</div>
+            <div class="v-desc">TMJ 영역 설정하기 화면의 사용 방법을 단계별로 확인할 수 있는 튜토리얼입니다.</div>
+            <div class="v-meta"></div>
+            <div class="v-actions">
+              <span class="pill-btn clever-one-line" onclick="event.stopPropagation(); openContentModal('https://www.miricanvas.com/ko/v/15fcgbo','TMJ 영역 설정하기','Clever One','');">자세히 보기</span>
+            </div>
+          </div>
+        </div>
+        <div class="video-card" data-name="tmj 내비게이터 활용하기" data-url="https://www.miricanvas.com/ko/v/15fcqox" data-idx="30" data-yt="0"
+             onclick="openContentModal('https://www.miricanvas.com/ko/v/15fcqox','TMJ 내비게이터 활용하기','Clever One','')" role="button" tabindex="0"
+             onkeydown="if(event.key==='Enter'){openContentModal('https://www.miricanvas.com/ko/v/15fcqox','TMJ 내비게이터 활용하기','Clever One','');}">
+          <div class="video-thumb clever-one">
+            <span class="motif-line"></span><span class="motif-dot"></span>
+            <span class="motif-word">Clever One</span>
+            <span class="thumb-idx">30 / 35</span>
+          </div>
+          <div class="video-body">
+            <div class="v-title">TMJ 내비게이터 활용하기</div>
+            <div class="v-desc">TMJ 내비게이터 활용하기 화면의 사용 방법을 단계별로 확인할 수 있는 튜토리얼입니다.</div>
+            <div class="v-meta"></div>
+            <div class="v-actions">
+              <span class="pill-btn clever-one-line" onclick="event.stopPropagation(); openContentModal('https://www.miricanvas.com/ko/v/15fcqox','TMJ 내비게이터 활용하기','Clever One','');">자세히 보기</span>
+            </div>
+          </div>
+        </div>
+        <div class="video-card" data-name="tmj 커브 활용하기" data-url="https://www.miricanvas.com/ko/v/15fcysk" data-idx="31" data-yt="0"
+             onclick="openContentModal('https://www.miricanvas.com/ko/v/15fcysk','TMJ 커브 활용하기','Clever One','')" role="button" tabindex="0"
+             onkeydown="if(event.key==='Enter'){openContentModal('https://www.miricanvas.com/ko/v/15fcysk','TMJ 커브 활용하기','Clever One','');}">
+          <div class="video-thumb clever-one">
+            <span class="motif-line"></span><span class="motif-dot"></span>
+            <span class="motif-word">Clever One</span>
+            <span class="thumb-idx">31 / 35</span>
+          </div>
+          <div class="video-body">
+            <div class="v-title">TMJ 커브 활용하기</div>
+            <div class="v-desc">TMJ 커브 활용하기 화면의 사용 방법을 단계별로 확인할 수 있는 튜토리얼입니다.</div>
+            <div class="v-meta"></div>
+            <div class="v-actions">
+              <span class="pill-btn clever-one-line" onclick="event.stopPropagation(); openContentModal('https://www.miricanvas.com/ko/v/15fcysk','TMJ 커브 활용하기','Clever One','');">자세히 보기</span>
+            </div>
+          </div>
+        </div>
+        <div class="video-card" data-name="tmj 3d 렌더링 조정하기" data-url="https://www.miricanvas.com/ko/v/15fd3pl" data-idx="32" data-yt="0"
+             onclick="openContentModal('https://www.miricanvas.com/ko/v/15fd3pl','TMJ 3D 렌더링 조정하기','Clever One','')" role="button" tabindex="0"
+             onkeydown="if(event.key==='Enter'){openContentModal('https://www.miricanvas.com/ko/v/15fd3pl','TMJ 3D 렌더링 조정하기','Clever One','');}">
+          <div class="video-thumb clever-one">
+            <span class="motif-line"></span><span class="motif-dot"></span>
+            <span class="motif-word">Clever One</span>
+            <span class="thumb-idx">32 / 35</span>
+          </div>
+          <div class="video-body">
+            <div class="v-title">TMJ 3D 렌더링 조정하기</div>
+            <div class="v-desc">TMJ 3D 렌더링 조정하기 화면의 사용 방법을 단계별로 확인할 수 있는 튜토리얼입니다.</div>
+            <div class="v-meta"></div>
+            <div class="v-actions">
+              <span class="pill-btn clever-one-line" onclick="event.stopPropagation(); openContentModal('https://www.miricanvas.com/ko/v/15fd3pl','TMJ 3D 렌더링 조정하기','Clever One','');">자세히 보기</span>
+            </div>
+          </div>
+        </div>
+        <div class="video-card" data-name="상담 모듈 활용하기" data-url="https://www.miricanvas.com/ko/v/15fbimc" data-idx="33" data-yt="0"
+             onclick="openContentModal('https://www.miricanvas.com/ko/v/15fbimc','상담 모듈 활용하기','Clever One','')" role="button" tabindex="0"
+             onkeydown="if(event.key==='Enter'){openContentModal('https://www.miricanvas.com/ko/v/15fbimc','상담 모듈 활용하기','Clever One','');}">
+          <div class="video-thumb clever-one">
+            <span class="motif-line"></span><span class="motif-dot"></span>
+            <span class="motif-word">Clever One</span>
+            <span class="thumb-idx">33 / 35</span>
+          </div>
+          <div class="video-body">
+            <div class="v-title">상담 모듈 활용하기</div>
+            <div class="v-desc">상담 모듈 활용하기 화면의 사용 방법을 단계별로 확인할 수 있는 튜토리얼입니다.</div>
+            <div class="v-meta"></div>
+            <div class="v-actions">
+              <span class="pill-btn clever-one-line" onclick="event.stopPropagation(); openContentModal('https://www.miricanvas.com/ko/v/15fbimc','상담 모듈 활용하기','Clever One','');">자세히 보기</span>
+            </div>
+          </div>
+        </div>
+        <div class="video-card" data-name="리포트 모듈 활용하기" data-url="https://www.miricanvas.com/ko/v/15fbl2j" data-idx="34" data-yt="0"
+             onclick="openContentModal('https://www.miricanvas.com/ko/v/15fbl2j','리포트 모듈 활용하기','Clever One','')" role="button" tabindex="0"
+             onkeydown="if(event.key==='Enter'){openContentModal('https://www.miricanvas.com/ko/v/15fbl2j','리포트 모듈 활용하기','Clever One','');}">
+          <div class="video-thumb clever-one">
+            <span class="motif-line"></span><span class="motif-dot"></span>
+            <span class="motif-word">Clever One</span>
+            <span class="thumb-idx">34 / 35</span>
+          </div>
+          <div class="video-body">
+            <div class="v-title">리포트 모듈 활용하기</div>
+            <div class="v-desc">리포트 모듈 활용하기 화면의 사용 방법을 단계별로 확인할 수 있는 튜토리얼입니다.</div>
+            <div class="v-meta"></div>
+            <div class="v-actions">
+              <span class="pill-btn clever-one-line" onclick="event.stopPropagation(); openContentModal('https://www.miricanvas.com/ko/v/15fbl2j','리포트 모듈 활용하기','Clever One','');">자세히 보기</span>
+            </div>
+          </div>
+        </div>
+        <div class="video-card" data-name="clever one 설정" data-url="https://www.miricanvas.com/ko/v/15ft3l4" data-idx="35" data-yt="0"
+             onclick="openContentModal('https://www.miricanvas.com/ko/v/15ft3l4','Clever One 설정','Clever One','')" role="button" tabindex="0"
+             onkeydown="if(event.key==='Enter'){openContentModal('https://www.miricanvas.com/ko/v/15ft3l4','Clever One 설정','Clever One','');}">
+          <div class="video-thumb clever-one">
+            <span class="motif-line"></span><span class="motif-dot"></span>
+            <span class="motif-word">Clever One</span>
+            <span class="thumb-idx">35 / 35</span>
+          </div>
+          <div class="video-body">
+            <div class="v-title">Clever One 설정</div>
+            <div class="v-desc">Clever One 설정 화면의 사용 방법을 단계별로 확인할 수 있는 튜토리얼입니다.</div>
+            <div class="v-meta"></div>
+            <div class="v-actions">
+              <span class="pill-btn clever-one-line" onclick="event.stopPropagation(); openContentModal('https://www.miricanvas.com/ko/v/15ft3l4','Clever One 설정','Clever One','');">자세히 보기</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="empty-state" id="empty" style="display:none;">검색 결과가 없습니다.</div>
+
+      <section class="cta-band" style="margin-top:48px;">
+        <div>
+          <h3>다른 제품도 살펴보세요</h3>
+          <p>Education Archive에서 전체 제품 목록을 확인할 수 있습니다.</p>
+        </div>
+        <a class="btn btn-primary" href="index.html">아카이브 홈으로 →</a>
+      </section>
+
+      
+  <footer class="site-footer">
+    <div><span class="brand">(주)바텍엠시스</span>대표이사 : 고영탁 · 사업자등록번호 : 104-86-22858</div>
+    <div>본사 경기도 수원시 권선구 산업로155번길 38 (고색동) · 서울사무소 서울시 마포구 토정로 266, 3층 (용강동)</div>
+    <div>장애접수·고객센터 1577-9115 (평일 09:30~18:00) · <a href="https://vatechmcis.com/" target="_blank" rel="noopener">vatechmcis.com 바로가기 ↗</a></div>
+    <div class="disclaimer">본 페이지는 Education Archive 내부 교육 콘텐츠 아카이브이며, (주)바텍엠시스 공식 홈페이지와는 별개로 운영되는 사내 도구입니다.</div>
+  </footer>
+    </div>
+  </div>
+</div>
+
+<script>
+function filterItems() {
+  applyFilters();
+}
+
+function onTypeAll(cb) {
+  if (cb.checked) {
+    document.querySelector('.type-filter[value="youtube"]').checked = false;
+  }
+  applyFilters();
+}
+function onTypeFilter() {
+  const yt = document.querySelector('.type-filter[value="youtube"]');
+  const all = document.querySelector('.type-filter[value="all"]');
+  all.checked = !yt.checked;
+  applyFilters();
+}
+
+function applyFilters() {
+  const q = document.getElementById('search').value.trim().toLowerCase();
+  const ytOnly = document.querySelector('.type-filter[value="youtube"]').checked;
+  const cards = document.querySelectorAll('.video-card[data-name]');
+  let visible = 0;
+  cards.forEach(c => {
+    const nameMatch = c.dataset.name.includes(q);
+    const ytMatch = !ytOnly || c.dataset.yt === '1';
+    const show = nameMatch && ytMatch;
+    c.style.display = show ? '' : 'none';
+    if (show) visible++;
+  });
+  document.getElementById('empty').style.display = visible === 0 ? 'block' : 'none';
+  document.getElementById('visibleCount').textContent = visible;
+}
+
+function sortCards() {
+  const mode = document.getElementById('sortSelect').value;
+  const grid = document.getElementById('grid');
+  const cards = Array.from(grid.querySelectorAll('.video-card[data-name]'));
+  cards.sort((a, b) => {
+    if (mode === 'name') return a.dataset.name.localeCompare(b.dataset.name, 'ko');
+    return (parseInt(a.dataset.idx)||0) - (parseInt(b.dataset.idx)||0);
+  });
+  cards.forEach(c => grid.appendChild(c));
+}
+</script>
+
+<div class="content-modal-backdrop" id="contentModalBackdrop">
+  <div class="content-modal">
+    <div class="modal-top">
+      <div class="modal-title-wrap">
+        <div class="modal-eyebrow" id="modalEyebrow"></div>
+        <h3 id="modalTitle"></h3>
+      </div>
+      <div class="modal-close" id="modalClose"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div>
+    </div>
+    <div class="detail-frame-wrap">
+      <iframe id="modalFrame" src="" title="콘텐츠 미리보기" allowfullscreen loading="lazy"></iframe>
+    </div>
+    <div class="detail-fallback">
+      <span>화면이 표시되지 않는다면, 대상 사이트에서 외부 삽입을 막아둔 것일 수 있습니다.</span>
+      <a id="modalOpenNewTab" href="#" target="_blank" rel="noopener" class="btn btn-primary">새 창에서 열기 ↗</a>
+    </div>
+    <div id="modalYtSection" style="display:none;">
+      <div class="section-title-row" style="margin-top:28px;">
+        <h2 style="font-size:18px;">관련 유튜브 영상</h2>
+      </div>
+      <div class="detail-yt-wrap">
+        <iframe id="modalYtFrame" src="" title="유튜브 영상" allowfullscreen loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-data.js"></script>
+<script src="search-ui.js"></script>
+<script src="modal-ui.js"></script>
+</body>
+</html>

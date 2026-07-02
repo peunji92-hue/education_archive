@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>EzOrtho 사용법 | Education Archive</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="utility-bar">
+  <div class="inner">
+    <a href="https://vestmall.kr/front/extra/extra_html.php?html=remote" target="_blank" rel="noopener">원격지원</a>
+    <a href="https://vatechmcis.com/" target="_blank" rel="noopener">바텍엠시스 홈페이지 ↗</a>
+  </div>
+</div>
+<div class="site-header">
+  <div class="inner">
+    <a class="logo-link" href="index.html">
+      <div class="logo-group">
+        <div class="logo-chip"><img src="assets/logo-vatechmcis.png" alt="vatech mcis" /></div>
+        <div class="logo-divider"></div>
+        <div class="academy-wordmark"><span class="line2">Education Archive</span></div>
+      </div>
+    </a>
+    <div class="header-row-wrap">
+      <nav class="main-nav">
+        <a href="index.html" class="home-link">아카이브 홈</a>
+        <a href="ez3d-i.html" class="nav-dental">Ez3D-i</a>
+        <a href="ezortho.html" class="nav-dental active">EzOrtho</a>
+        <a href="ezdent-i.html" class="nav-dental">EzDent-i</a>
+        <a href="clever-one.html" class="nav-clever-one">Clever One</a>
+        <a href="clever-lab.html" class="nav-lab">Clever Lab</a>
+      </nav>
+      <div class="header-icons">
+        <a class="reserve-toggle" href="https://www.miricanvas.com/v2/design2/v/1a86edd3-d8cb-4b45-9fa4-6c8b7379f6b5" target="_blank" rel="noopener" aria-label="온라인 교육 예약" title="온라인 교육 예약"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="16" rx="2.5"/><line x1="16" y1="2.5" x2="16" y2="6.5"/><line x1="8" y1="2.5" x2="8" y2="6.5"/><line x1="3" y1="9.5" x2="21" y2="9.5"/><path d="M8.5 14l2 2 4-4"/></svg></a>
+        <button type="button" class="search-toggle" id="searchToggle" aria-label="검색"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="search-overlay" id="searchOverlay">
+  <div class="inner">
+    <span class="close-link" id="searchClose">취소</span>
+    <div class="search-input-row">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="text" id="searchInput" placeholder="콘텐츠 이름, 제품명으로 검색" autocomplete="off" />
+    </div>
+
+    <div id="searchDefault">
+      <div class="search-columns">
+        <div>
+          <div class="col-label">빠른 링크</div>
+          <a href="ez3d-i.html">Ez3D-i</a>
+          <a href="ezortho.html">EzOrtho</a>
+          <a href="ezdent-i.html">EzDent-i</a>
+          <a href="clever-one.html">Clever One</a>
+          <a href="clever-lab.html">Clever Lab</a>
+        </div>
+        <div>
+          <div class="col-label">인기 콘텐츠</div>
+          <div id="popularQuickLinks"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="search-results" id="searchResults" style="display:none;"></div>
+  </div>
+</div>
+<div class="page">
+
+  <section class="hero" style="padding:44px 0 30px;">
+    <p class="eyebrow">Product Training</p>
+    <h1 style="font-size:28px;">EzOrtho 사용 방법 살펴보기</h1>
+    <p>EzOrtho 관련 화면별 튜토리얼을 총 8개 콘텐츠로 정리했습니다. 카드를 선택하면 이 페이지 안에서 바로 확인할 수 있습니다.</p>
+  </section>
+
+  <div class="edu-layout">
+    <aside class="edu-sidebar">
+      <span class="filter-tag dental">EzOrtho <span class="x" onclick="location.href='index.html'">✕</span></span>
+
+      <div class="edu-filter-block">
+        <div class="filter-label">정렬 기준</div>
+        <select class="edu-select" id="sortSelect" onchange="sortCards()">
+          <option value="idx">기본순</option>
+          <option value="name">이름순 (가나다)</option>
+        </select>
+      </div>
+
+      <div class="edu-filter-block">
+        <div class="filter-label">콘텐츠 유형</div>
+        <div class="check-list">
+          <label><span class="left"><input type="checkbox" class="type-filter" value="all" checked onchange="onTypeAll(this)"> 전체</span><span class="n">8</span></label>
+          <label><span class="left"><input type="checkbox" class="type-filter" value="youtube" onchange="onTypeFilter()"> 유튜브 포함</span><span class="n">7</span></label>
+        </div>
+      </div>
+
+      <div class="edu-filter-block">
+        <div class="filter-label">검색</div>
+        <input class="filter-search" id="search" type="text" placeholder="항목 이름으로 검색..." oninput="filterItems()"
+          style="width:100%; padding:10px 12px; border:1.5px solid var(--line); border-radius:var(--radius); font-size:14.5px; outline:none;" />
+      </div>
+
+      <div class="edu-filter-block">
+        <div class="filter-label">다른 제품 보기</div>
+        <div class="edu-tree"><a href="ez3d-i.html">Ez3D-i<span class="n">(18)</span></a><a href="ezdent-i.html">EzDent-i<span class="n">(15)</span></a><a href="clever-one.html">Clever One<span class="n">(35)</span></a><a href="clever-lab.html">Clever Lab<span class="n">(19)</span></a></div>
+      </div>
+    </aside>
+
+    <div class="edu-main">
+      <div class="edu-count">전체 <strong id="visibleCount">8</strong>개 콘텐츠</div>
+      <div class="video-grid" id="grid">
+        
+        <div class="video-card" data-name="이미지 등록 (image import)" data-url="https://www.miricanvas.com/v/15au44u" data-idx="1" data-yt="1"
+             onclick="openContentModal('https://www.miricanvas.com/v/15au44u','이미지 등록 (image import)','EzOrtho','https://youtu.be/ei1F9H5Qs_E')" role="button" tabindex="0"
+             onkeydown="if(event.key==='Enter'){openContentModal('https://www.miricanvas.com/v/15au44u','이미지 등록 (image import)','EzOrtho','https://youtu.be/ei1F9H5Qs_E');}">
+          <div class="video-thumb dental">
+            <span class="motif-line"></span><span class="motif-dot"></span>
+            <span class="motif-word">EzOrtho</span>
+            <span class="thumb-idx">01 / 8</span>
+          </div>
+          <div class="video-body">
+            <div class="v-title">이미지 등록 (image import)</div>
+            <div class="v-desc">이미지 등록 (image import) 화면의 사용 방법을 단계별로 확인할 수 있는 튜토리얼입니다.</div>
+            <div class="v-meta"><span class="view-badge" style="color:#d6363c;">▶ 유튜브</span></div>
+            <div class="v-actions">
+              <span class="pill-btn dental-line" onclick="event.stopPropagation(); openContentModal('https://www.miricanvas.com/v/15au44u','이미지 등록 (image import)','EzOrtho','https://youtu.be/ei1F9H5Qs_E');">자세히 보기</span>
+            </div>
+          </div>
+        </div>
+        <div class="video-card" data-name="길이 보정 (calibration)" data-url="https://www.miricanvas.com/v/15anqwv" data-idx="2" data-yt="1"
+             onclick="openContentModal('https://www.miricanvas.com/v/15anqwv','길이 보정 (Calibration)','EzOrtho','https://youtu.be/aoRvIEVkDg0')" role="button" tabindex="0"
+             onkeydown="if(event.key==='Enter'){openContentModal('https://www.miricanvas.com/v/15anqwv','길이 보정 (Calibration)','EzOrtho','https://youtu.be/aoRvIEVkDg0');}">
+          <div class="video-thumb dental">
+            <span class="motif-line"></span><span class="motif-dot"></span>
+            <span class="motif-word">EzOrtho</span>
+            <span class="thumb-idx">02 / 8</span>
+          </div>
+          <div class="video-body">
+            <div class="v-title">길이 보정 (Calibration)</div>
+            <div class="v-desc">길이 보정 (Calibration) 화면의 사용 방법을 단계별로 확인할 수 있는 튜토리얼입니다.</div>
+            <div class="v-meta"><span class="view-badge" style="color:#d6363c;">▶ 유튜브</span></div>
+            <div class="v-actions">
+              <span class="pill-btn dental-line" onclick="event.stopPropagation(); openContentModal('https://www.miricanvas.com/v/15anqwv','길이 보정 (Calibration)','EzOrtho','https://youtu.be/aoRvIEVkDg0');">자세히 보기</span>
+            </div>
+          </div>
+        </div>
+        <div class="video-card" data-name="자동 분석 (auto tracing)" data-url="https://www.miricanvas.com/v/15b0ydc" data-idx="3" data-yt="1"
+             onclick="openContentModal('https://www.miricanvas.com/v/15b0ydc','자동 분석 (Auto Tracing)','EzOrtho','https://youtu.be/1_9moaYjr5Q')" role="button" tabindex="0"
+             onkeydown="if(event.key==='Enter'){openContentModal('https://www.miricanvas.com/v/15b0ydc','자동 분석 (Auto Tracing)','EzOrtho','https://youtu.be/1_9moaYjr5Q');}">
+          <div class="video-thumb dental">
+            <span class="motif-line"></span><span class="motif-dot"></span>
+            <span class="motif-word">EzOrtho</span>
+            <span class="thumb-idx">03 / 8</span>
+          </div>
+          <div class="video-body">
+            <div class="v-title">자동 분석 (Auto Tracing)</div>
+            <div class="v-desc">자동 분석 (Auto Tracing) 화면의 사용 방법을 단계별로 확인할 수 있는 튜토리얼입니다.</div>
+            <div class="v-meta"><span class="view-badge" style="color:#d6363c;">▶ 유튜브</span></div>
+            <div class="v-actions">
+              <span class="pill-btn dental-line" onclick="event.stopPropagation(); openContentModal('https://www.miricanvas.com/v/15b0ydc','자동 분석 (Auto Tracing)','EzOrtho','https://youtu.be/1_9moaYjr5Q');">자세히 보기</span>
+            </div>
+          </div>
+        </div>
+        <div class="video-card" data-name="분석 (tracing)" data-url="https://www.miricanvas.com/v/15b3nii" data-idx="4" data-yt="0"
+             onclick="openContentModal('https://www.miricanvas.com/v/15b3nii','분석 (Tracing)','EzOrtho','')" role="button" tabindex="0"
+             onkeydown="if(event.key==='Enter'){openContentModal('https://www.miricanvas.com/v/15b3nii','분석 (Tracing)','EzOrtho','');}">
+          <div class="video-thumb dental">
+            <span class="motif-line"></span><span class="motif-dot"></span>
+            <span class="motif-word">EzOrtho</span>
+            <span class="thumb-idx">04 / 8</span>
+          </div>
+          <div class="video-body">
+            <div class="v-title">분석 (Tracing)</div>
+            <div class="v-desc">분석 (Tracing) 화면의 사용 방법을 단계별로 확인할 수 있는 튜토리얼입니다.</div>
+            <div class="v-meta"></div>
+            <div class="v-actions">
+              <span class="pill-btn dental-line" onclick="event.stopPropagation(); openContentModal('https://www.miricanvas.com/v/15b3nii','분석 (Tracing)','EzOrtho','');">자세히 보기</span>
+            </div>
+          </div>
+        </div>
+        <div class="video-card" data-name="분석차트 (analysis chart)" data-url="https://www.miricanvas.com/v/15b9n4l" data-idx="5" data-yt="1"
+             onclick="openContentModal('https://www.miricanvas.com/v/15b9n4l','분석차트 (Analysis Chart)','EzOrtho','https://youtu.be/o7vgcNm58To')" role="button" tabindex="0"
+             onkeydown="if(event.key==='Enter'){openContentModal('https://www.miricanvas.com/v/15b9n4l','분석차트 (Analysis Chart)','EzOrtho','https://youtu.be/o7vgcNm58To');}">
+          <div class="video-thumb dental">
+            <span class="motif-line"></span><span class="motif-dot"></span>
+            <span class="motif-word">EzOrtho</span>
+            <span class="thumb-idx">05 / 8</span>
+          </div>
+          <div class="video-body">
+            <div class="v-title">분석차트 (Analysis Chart)</div>
+            <div class="v-desc">분석차트 (Analysis Chart) 화면의 사용 방법을 단계별로 확인할 수 있는 튜토리얼입니다.</div>
+            <div class="v-meta"><span class="view-badge" style="color:#d6363c;">▶ 유튜브</span></div>
+            <div class="v-actions">
+              <span class="pill-btn dental-line" onclick="event.stopPropagation(); openContentModal('https://www.miricanvas.com/v/15b9n4l','분석차트 (Analysis Chart)','EzOrtho','https://youtu.be/o7vgcNm58To');">자세히 보기</span>
+            </div>
+          </div>
+        </div>
+        <div class="video-card" data-name="시뮬레이션 vtosto" data-url="https://www.miricanvas.com/v/15bgrwl" data-idx="6" data-yt="1"
+             onclick="openContentModal('https://www.miricanvas.com/v/15bgrwl','시뮬레이션 VTOSTO','EzOrtho','https://youtu.be/_xnDxePCgfg')" role="button" tabindex="0"
+             onkeydown="if(event.key==='Enter'){openContentModal('https://www.miricanvas.com/v/15bgrwl','시뮬레이션 VTOSTO','EzOrtho','https://youtu.be/_xnDxePCgfg');}">
+          <div class="video-thumb dental">
+            <span class="motif-line"></span><span class="motif-dot"></span>
+            <span class="motif-word">EzOrtho</span>
+            <span class="thumb-idx">06 / 8</span>
+          </div>
+          <div class="video-body">
+            <div class="v-title">시뮬레이션 VTOSTO</div>
+            <div class="v-desc">시뮬레이션 VTOSTO 화면의 사용 방법을 단계별로 확인할 수 있는 튜토리얼입니다.</div>
+            <div class="v-meta"><span class="view-badge" style="color:#d6363c;">▶ 유튜브</span></div>
+            <div class="v-actions">
+              <span class="pill-btn dental-line" onclick="event.stopPropagation(); openContentModal('https://www.miricanvas.com/v/15bgrwl','시뮬레이션 VTOSTO','EzOrtho','https://youtu.be/_xnDxePCgfg');">자세히 보기</span>
+            </div>
+          </div>
+        </div>
+        <div class="video-card" data-name="시뮬레이션 중첩&amp; profilogram" data-url="https://www.miricanvas.com/v/15btq37" data-idx="7" data-yt="1"
+             onclick="openContentModal('https://www.miricanvas.com/v/15btq37','시뮬레이션 중첩&amp; Profilogram','EzOrtho','https://youtu.be/3DEHUtcIEUc')" role="button" tabindex="0"
+             onkeydown="if(event.key==='Enter'){openContentModal('https://www.miricanvas.com/v/15btq37','시뮬레이션 중첩&amp; Profilogram','EzOrtho','https://youtu.be/3DEHUtcIEUc');}">
+          <div class="video-thumb dental">
+            <span class="motif-line"></span><span class="motif-dot"></span>
+            <span class="motif-word">EzOrtho</span>
+            <span class="thumb-idx">07 / 8</span>
+          </div>
+          <div class="video-body">
+            <div class="v-title">시뮬레이션 중첩&amp; Profilogram</div>
+            <div class="v-desc">시뮬레이션 중첩&amp; Profilogram 화면의 사용 방법을 단계별로 확인할 수 있는 튜토리얼입니다.</div>
+            <div class="v-meta"><span class="view-badge" style="color:#d6363c;">▶ 유튜브</span></div>
+            <div class="v-actions">
+              <span class="pill-btn dental-line" onclick="event.stopPropagation(); openContentModal('https://www.miricanvas.com/v/15btq37','시뮬레이션 중첩&amp; Profilogram','EzOrtho','https://youtu.be/3DEHUtcIEUc');">자세히 보기</span>
+            </div>
+          </div>
+        </div>
+        <div class="video-card" data-name="분석편집기" data-url="https://www.miricanvas.com/v/15buo03" data-idx="8" data-yt="1"
+             onclick="openContentModal('https://www.miricanvas.com/v/15buo03','분석편집기','EzOrtho','https://youtu.be/LDjdt5mGLdE')" role="button" tabindex="0"
+             onkeydown="if(event.key==='Enter'){openContentModal('https://www.miricanvas.com/v/15buo03','분석편집기','EzOrtho','https://youtu.be/LDjdt5mGLdE');}">
+          <div class="video-thumb dental">
+            <span class="motif-line"></span><span class="motif-dot"></span>
+            <span class="motif-word">EzOrtho</span>
+            <span class="thumb-idx">08 / 8</span>
+          </div>
+          <div class="video-body">
+            <div class="v-title">분석편집기</div>
+            <div class="v-desc">분석편집기 화면의 사용 방법을 단계별로 확인할 수 있는 튜토리얼입니다.</div>
+            <div class="v-meta"><span class="view-badge" style="color:#d6363c;">▶ 유튜브</span></div>
+            <div class="v-actions">
+              <span class="pill-btn dental-line" onclick="event.stopPropagation(); openContentModal('https://www.miricanvas.com/v/15buo03','분석편집기','EzOrtho','https://youtu.be/LDjdt5mGLdE');">자세히 보기</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="empty-state" id="empty" style="display:none;">검색 결과가 없습니다.</div>
+
+      <section class="cta-band" style="margin-top:48px;">
+        <div>
+          <h3>다른 제품도 살펴보세요</h3>
+          <p>Education Archive에서 전체 제품 목록을 확인할 수 있습니다.</p>
+        </div>
+        <a class="btn btn-primary" href="index.html">아카이브 홈으로 →</a>
+      </section>
+
+      
+  <footer class="site-footer">
+    <div><span class="brand">(주)바텍엠시스</span>대표이사 : 고영탁 · 사업자등록번호 : 104-86-22858</div>
+    <div>본사 경기도 수원시 권선구 산업로155번길 38 (고색동) · 서울사무소 서울시 마포구 토정로 266, 3층 (용강동)</div>
+    <div>장애접수·고객센터 1577-9115 (평일 09:30~18:00) · <a href="https://vatechmcis.com/" target="_blank" rel="noopener">vatechmcis.com 바로가기 ↗</a></div>
+    <div class="disclaimer">본 페이지는 Education Archive 내부 교육 콘텐츠 아카이브이며, (주)바텍엠시스 공식 홈페이지와는 별개로 운영되는 사내 도구입니다.</div>
+  </footer>
+    </div>
+  </div>
+</div>
+
+<script>
+function filterItems() {
+  applyFilters();
+}
+
+function onTypeAll(cb) {
+  if (cb.checked) {
+    document.querySelector('.type-filter[value="youtube"]').checked = false;
+  }
+  applyFilters();
+}
+function onTypeFilter() {
+  const yt = document.querySelector('.type-filter[value="youtube"]');
+  const all = document.querySelector('.type-filter[value="all"]');
+  all.checked = !yt.checked;
+  applyFilters();
+}
+
+function applyFilters() {
+  const q = document.getElementById('search').value.trim().toLowerCase();
+  const ytOnly = document.querySelector('.type-filter[value="youtube"]').checked;
+  const cards = document.querySelectorAll('.video-card[data-name]');
+  let visible = 0;
+  cards.forEach(c => {
+    const nameMatch = c.dataset.name.includes(q);
+    const ytMatch = !ytOnly || c.dataset.yt === '1';
+    const show = nameMatch && ytMatch;
+    c.style.display = show ? '' : 'none';
+    if (show) visible++;
+  });
+  document.getElementById('empty').style.display = visible === 0 ? 'block' : 'none';
+  document.getElementById('visibleCount').textContent = visible;
+}
+
+function sortCards() {
+  const mode = document.getElementById('sortSelect').value;
+  const grid = document.getElementById('grid');
+  const cards = Array.from(grid.querySelectorAll('.video-card[data-name]'));
+  cards.sort((a, b) => {
+    if (mode === 'name') return a.dataset.name.localeCompare(b.dataset.name, 'ko');
+    return (parseInt(a.dataset.idx)||0) - (parseInt(b.dataset.idx)||0);
+  });
+  cards.forEach(c => grid.appendChild(c));
+}
+</script>
+
+<div class="content-modal-backdrop" id="contentModalBackdrop">
+  <div class="content-modal">
+    <div class="modal-top">
+      <div class="modal-title-wrap">
+        <div class="modal-eyebrow" id="modalEyebrow"></div>
+        <h3 id="modalTitle"></h3>
+      </div>
+      <div class="modal-close" id="modalClose"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div>
+    </div>
+    <div class="detail-frame-wrap">
+      <iframe id="modalFrame" src="" title="콘텐츠 미리보기" allowfullscreen loading="lazy"></iframe>
+    </div>
+    <div class="detail-fallback">
+      <span>화면이 표시되지 않는다면, 대상 사이트에서 외부 삽입을 막아둔 것일 수 있습니다.</span>
+      <a id="modalOpenNewTab" href="#" target="_blank" rel="noopener" class="btn btn-primary">새 창에서 열기 ↗</a>
+    </div>
+    <div id="modalYtSection" style="display:none;">
+      <div class="section-title-row" style="margin-top:28px;">
+        <h2 style="font-size:18px;">관련 유튜브 영상</h2>
+      </div>
+      <div class="detail-yt-wrap">
+        <iframe id="modalYtFrame" src="" title="유튜브 영상" allowfullscreen loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-data.js"></script>
+<script src="search-ui.js"></script>
+<script src="modal-ui.js"></script>
+</body>
+</html>
