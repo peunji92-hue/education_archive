@@ -60,8 +60,16 @@
   });
 
   if (input) {
+    let searchDebounceTimer;
     input.addEventListener('input', () => {
-      const q = input.value.trim().toLowerCase();
+      clearTimeout(searchDebounceTimer);
+      const val = input.value;
+      searchDebounceTimer = setTimeout(() => runSearch(val), 350);
+    });
+  }
+
+  function runSearch(val) {
+      const q = val.trim().toLowerCase();
       if (!q) { showDefault(); return; }
       defaultView.style.display = 'none';
       resultsView.style.display = 'block';
@@ -80,6 +88,5 @@
           <span class="result-meta">${it.product}</span>
         </div>`;
       }).join('');
-    });
   }
 })();

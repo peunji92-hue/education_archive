@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="ko">
 <head>
+<meta name="robots" content="noindex, nofollow" />
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>EzOrtho 사용법 | Education Archive</title>
@@ -84,6 +85,7 @@
         <select class="edu-select" id="sortSelect" onchange="sortCards()">
           <option value="idx">기본순</option>
           <option value="name">이름순 (가나다)</option>
+          <option value="views">조회수 높은순</option>
         </select>
       </div>
 
@@ -111,7 +113,7 @@
       <div class="edu-count">전체 <strong id="visibleCount">8</strong>개 콘텐츠</div>
       <div class="video-grid" id="grid">
         
-        <div class="video-card" data-name="이미지 등록 (image import)" data-url="https://www.miricanvas.com/v/15au44u" data-idx="1" data-yt="1"
+        <div class="video-card" data-name="이미지 등록 (image import)" data-url="https://www.miricanvas.com/v/15au44u" data-views="10" data-idx="1" data-yt="1"
              onclick="openContentModal('https://www.miricanvas.com/v/15au44u','이미지 등록 (image import)','EzOrtho','https://youtu.be/ei1F9H5Qs_E')" role="button" tabindex="0"
              onkeydown="if(event.key==='Enter'){openContentModal('https://www.miricanvas.com/v/15au44u','이미지 등록 (image import)','EzOrtho','https://youtu.be/ei1F9H5Qs_E');}">
           <div class="video-thumb dental">
@@ -128,7 +130,7 @@
             </div>
           </div>
         </div>
-        <div class="video-card" data-name="길이 보정 (calibration)" data-url="https://www.miricanvas.com/v/15anqwv" data-idx="2" data-yt="1"
+        <div class="video-card" data-name="길이 보정 (calibration)" data-url="https://www.miricanvas.com/v/15anqwv" data-views="2" data-idx="2" data-yt="1"
              onclick="openContentModal('https://www.miricanvas.com/v/15anqwv','길이 보정 (Calibration)','EzOrtho','https://youtu.be/aoRvIEVkDg0')" role="button" tabindex="0"
              onkeydown="if(event.key==='Enter'){openContentModal('https://www.miricanvas.com/v/15anqwv','길이 보정 (Calibration)','EzOrtho','https://youtu.be/aoRvIEVkDg0');}">
           <div class="video-thumb dental">
@@ -145,7 +147,7 @@
             </div>
           </div>
         </div>
-        <div class="video-card" data-name="자동 분석 (auto tracing)" data-url="https://www.miricanvas.com/v/15b0ydc" data-idx="3" data-yt="1"
+        <div class="video-card" data-name="자동 분석 (auto tracing)" data-url="https://www.miricanvas.com/v/15b0ydc" data-views="0" data-idx="3" data-yt="1"
              onclick="openContentModal('https://www.miricanvas.com/v/15b0ydc','자동 분석 (Auto Tracing)','EzOrtho','https://youtu.be/1_9moaYjr5Q')" role="button" tabindex="0"
              onkeydown="if(event.key==='Enter'){openContentModal('https://www.miricanvas.com/v/15b0ydc','자동 분석 (Auto Tracing)','EzOrtho','https://youtu.be/1_9moaYjr5Q');}">
           <div class="video-thumb dental">
@@ -162,7 +164,7 @@
             </div>
           </div>
         </div>
-        <div class="video-card" data-name="분석 (tracing)" data-url="https://www.miricanvas.com/v/15b3nii" data-idx="4" data-yt="0"
+        <div class="video-card" data-name="분석 (tracing)" data-url="https://www.miricanvas.com/v/15b3nii" data-views="1" data-idx="4" data-yt="0"
              onclick="openContentModal('https://www.miricanvas.com/v/15b3nii','분석 (Tracing)','EzOrtho','')" role="button" tabindex="0"
              onkeydown="if(event.key==='Enter'){openContentModal('https://www.miricanvas.com/v/15b3nii','분석 (Tracing)','EzOrtho','');}">
           <div class="video-thumb dental">
@@ -179,7 +181,7 @@
             </div>
           </div>
         </div>
-        <div class="video-card" data-name="분석차트 (analysis chart)" data-url="https://www.miricanvas.com/v/15b9n4l" data-idx="5" data-yt="1"
+        <div class="video-card" data-name="분석차트 (analysis chart)" data-url="https://www.miricanvas.com/v/15b9n4l" data-views="0" data-idx="5" data-yt="1"
              onclick="openContentModal('https://www.miricanvas.com/v/15b9n4l','분석차트 (Analysis Chart)','EzOrtho','https://youtu.be/o7vgcNm58To')" role="button" tabindex="0"
              onkeydown="if(event.key==='Enter'){openContentModal('https://www.miricanvas.com/v/15b9n4l','분석차트 (Analysis Chart)','EzOrtho','https://youtu.be/o7vgcNm58To');}">
           <div class="video-thumb dental">
@@ -196,7 +198,7 @@
             </div>
           </div>
         </div>
-        <div class="video-card" data-name="시뮬레이션 vtosto" data-url="https://www.miricanvas.com/v/15bgrwl" data-idx="6" data-yt="1"
+        <div class="video-card" data-name="시뮬레이션 vtosto" data-url="https://www.miricanvas.com/v/15bgrwl" data-views="0" data-idx="6" data-yt="1"
              onclick="openContentModal('https://www.miricanvas.com/v/15bgrwl','시뮬레이션 VTOSTO','EzOrtho','https://youtu.be/_xnDxePCgfg')" role="button" tabindex="0"
              onkeydown="if(event.key==='Enter'){openContentModal('https://www.miricanvas.com/v/15bgrwl','시뮬레이션 VTOSTO','EzOrtho','https://youtu.be/_xnDxePCgfg');}">
           <div class="video-thumb dental">
@@ -213,7 +215,7 @@
             </div>
           </div>
         </div>
-        <div class="video-card" data-name="시뮬레이션 중첩&amp; profilogram" data-url="https://www.miricanvas.com/v/15btq37" data-idx="7" data-yt="1"
+        <div class="video-card" data-name="시뮬레이션 중첩&amp; profilogram" data-url="https://www.miricanvas.com/v/15btq37" data-views="0" data-idx="7" data-yt="1"
              onclick="openContentModal('https://www.miricanvas.com/v/15btq37','시뮬레이션 중첩&amp; Profilogram','EzOrtho','https://youtu.be/3DEHUtcIEUc')" role="button" tabindex="0"
              onkeydown="if(event.key==='Enter'){openContentModal('https://www.miricanvas.com/v/15btq37','시뮬레이션 중첩&amp; Profilogram','EzOrtho','https://youtu.be/3DEHUtcIEUc');}">
           <div class="video-thumb dental">
@@ -230,7 +232,7 @@
             </div>
           </div>
         </div>
-        <div class="video-card" data-name="분석편집기" data-url="https://www.miricanvas.com/v/15buo03" data-idx="8" data-yt="1"
+        <div class="video-card" data-name="분석편집기" data-url="https://www.miricanvas.com/v/15buo03" data-views="0" data-idx="8" data-yt="1"
              onclick="openContentModal('https://www.miricanvas.com/v/15buo03','분석편집기','EzOrtho','https://youtu.be/LDjdt5mGLdE')" role="button" tabindex="0"
              onkeydown="if(event.key==='Enter'){openContentModal('https://www.miricanvas.com/v/15buo03','분석편집기','EzOrtho','https://youtu.be/LDjdt5mGLdE');}">
           <div class="video-thumb dental">
@@ -270,8 +272,10 @@
 </div>
 
 <script>
+let searchDebounceTimer;
 function filterItems() {
-  applyFilters();
+  clearTimeout(searchDebounceTimer);
+  searchDebounceTimer = setTimeout(applyFilters, 350);
 }
 
 function onTypeAll(cb) {
@@ -309,6 +313,7 @@ function sortCards() {
   const cards = Array.from(grid.querySelectorAll('.video-card[data-name]'));
   cards.sort((a, b) => {
     if (mode === 'name') return a.dataset.name.localeCompare(b.dataset.name, 'ko');
+    if (mode === 'views') return (parseInt(b.dataset.views)||0) - (parseInt(a.dataset.views)||0);
     return (parseInt(a.dataset.idx)||0) - (parseInt(b.dataset.idx)||0);
   });
   cards.forEach(c => grid.appendChild(c));

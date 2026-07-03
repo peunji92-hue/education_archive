@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="ko">
 <head>
+<meta name="robots" content="noindex, nofollow" />
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Ez3D-i 사용법 | Education Archive</title>
@@ -84,6 +85,7 @@
         <select class="edu-select" id="sortSelect" onchange="sortCards()">
           <option value="idx">기본순</option>
           <option value="name">이름순 (가나다)</option>
+          <option value="views">조회수 높은순</option>
         </select>
       </div>
 
@@ -111,7 +113,7 @@
       <div class="edu-count">전체 <strong id="visibleCount">18</strong>개 콘텐츠</div>
       <div class="video-grid" id="grid">
         
-        <div class="video-card" data-name="mpr 화면 및 축맞추기" data-url="https://www.miricanvas.com/v/14tehj0" data-idx="1" data-yt="1"
+        <div class="video-card" data-name="mpr 화면 및 축맞추기" data-url="https://www.miricanvas.com/v/14tehj0" data-views="20" data-idx="1" data-yt="1"
              onclick="openContentModal('https://www.miricanvas.com/v/14tehj0','MPR 화면 및 축맞추기','Ez3D-i','https://youtu.be/q0VkhfruoPc')" role="button" tabindex="0"
              onkeydown="if(event.key==='Enter'){openContentModal('https://www.miricanvas.com/v/14tehj0','MPR 화면 및 축맞추기','Ez3D-i','https://youtu.be/q0VkhfruoPc');}">
           <div class="video-thumb dental">
@@ -128,7 +130,7 @@
             </div>
           </div>
         </div>
-        <div class="video-card" data-name="레이아웃 변경" data-url="https://www.miricanvas.com/v/14tuchg" data-idx="2" data-yt="0"
+        <div class="video-card" data-name="레이아웃 변경" data-url="https://www.miricanvas.com/v/14tuchg" data-views="12" data-idx="2" data-yt="0"
              onclick="openContentModal('https://www.miricanvas.com/v/14tuchg','레이아웃 변경','Ez3D-i','')" role="button" tabindex="0"
              onkeydown="if(event.key==='Enter'){openContentModal('https://www.miricanvas.com/v/14tuchg','레이아웃 변경','Ez3D-i','');}">
           <div class="video-thumb dental">
@@ -145,7 +147,7 @@
             </div>
           </div>
         </div>
-        <div class="video-card" data-name="신경관 그리기" data-url="https://www.miricanvas.com/v/14vuy76" data-idx="3" data-yt="1"
+        <div class="video-card" data-name="신경관 그리기" data-url="https://www.miricanvas.com/v/14vuy76" data-views="2" data-idx="3" data-yt="1"
              onclick="openContentModal('https://www.miricanvas.com/v/14vuy76','신경관 그리기','Ez3D-i','https://youtu.be/pi9Ty30bbGc')" role="button" tabindex="0"
              onkeydown="if(event.key==='Enter'){openContentModal('https://www.miricanvas.com/v/14vuy76','신경관 그리기','Ez3D-i','https://youtu.be/pi9Ty30bbGc');}">
           <div class="video-thumb dental">
@@ -162,7 +164,7 @@
             </div>
           </div>
         </div>
-        <div class="video-card" data-name="길이측정" data-url="https://www.miricanvas.com/v/1510gty" data-idx="4" data-yt="0"
+        <div class="video-card" data-name="길이측정" data-url="https://www.miricanvas.com/v/1510gty" data-views="16" data-idx="4" data-yt="0"
              onclick="openContentModal('https://www.miricanvas.com/v/1510gty','길이측정','Ez3D-i','')" role="button" tabindex="0"
              onkeydown="if(event.key==='Enter'){openContentModal('https://www.miricanvas.com/v/1510gty','길이측정','Ez3D-i','');}">
           <div class="video-thumb dental">
@@ -179,7 +181,7 @@
             </div>
           </div>
         </div>
-        <div class="video-card" data-name="커브그리기" data-url="https://www.miricanvas.com/v/14k54sm" data-idx="5" data-yt="1"
+        <div class="video-card" data-name="커브그리기" data-url="https://www.miricanvas.com/v/14k54sm" data-views="31" data-idx="5" data-yt="1"
              onclick="openContentModal('https://www.miricanvas.com/v/14k54sm','커브그리기','Ez3D-i','https://youtu.be/LMv--eKXZAo')" role="button" tabindex="0"
              onkeydown="if(event.key==='Enter'){openContentModal('https://www.miricanvas.com/v/14k54sm','커브그리기','Ez3D-i','https://youtu.be/LMv--eKXZAo');}">
           <div class="video-thumb dental">
@@ -196,7 +198,7 @@
             </div>
           </div>
         </div>
-        <div class="video-card" data-name="간격/두께" data-url="https://www.miricanvas.com/v/14htr3v" data-idx="6" data-yt="0"
+        <div class="video-card" data-name="간격/두께" data-url="https://www.miricanvas.com/v/14htr3v" data-views="28" data-idx="6" data-yt="0"
              onclick="openContentModal('https://www.miricanvas.com/v/14htr3v','간격/두께','Ez3D-i','')" role="button" tabindex="0"
              onkeydown="if(event.key==='Enter'){openContentModal('https://www.miricanvas.com/v/14htr3v','간격/두께','Ez3D-i','');}">
           <div class="video-thumb dental">
@@ -213,7 +215,7 @@
             </div>
           </div>
         </div>
-        <div class="video-card" data-name="임플란트 시뮬레이션" data-url="https://www.miricanvas.com/v/1525es6" data-idx="7" data-yt="0"
+        <div class="video-card" data-name="임플란트 시뮬레이션" data-url="https://www.miricanvas.com/v/1525es6" data-views="16" data-idx="7" data-yt="0"
              onclick="openContentModal('https://www.miricanvas.com/v/1525es6','임플란트 시뮬레이션','Ez3D-i','')" role="button" tabindex="0"
              onkeydown="if(event.key==='Enter'){openContentModal('https://www.miricanvas.com/v/1525es6','임플란트 시뮬레이션','Ez3D-i','');}">
           <div class="video-thumb dental">
@@ -230,7 +232,7 @@
             </div>
           </div>
         </div>
-        <div class="video-card" data-name="하악 임플란트 시뮬레이션" data-url="https://www.miricanvas.com/v/14yctpk" data-idx="8" data-yt="1"
+        <div class="video-card" data-name="하악 임플란트 시뮬레이션" data-url="https://www.miricanvas.com/v/14yctpk" data-views="3" data-idx="8" data-yt="1"
              onclick="openContentModal('https://www.miricanvas.com/v/14yctpk','하악 임플란트 시뮬레이션','Ez3D-i','https://youtu.be/4xxEtQCV8QA')" role="button" tabindex="0"
              onkeydown="if(event.key==='Enter'){openContentModal('https://www.miricanvas.com/v/14yctpk','하악 임플란트 시뮬레이션','Ez3D-i','https://youtu.be/4xxEtQCV8QA');}">
           <div class="video-thumb dental">
@@ -247,7 +249,7 @@
             </div>
           </div>
         </div>
-        <div class="video-card" data-name="상악 임플란트 시뮬레이션" data-url="https://www.miricanvas.com/v/14mcl0m" data-idx="9" data-yt="1"
+        <div class="video-card" data-name="상악 임플란트 시뮬레이션" data-url="https://www.miricanvas.com/v/14mcl0m" data-views="1" data-idx="9" data-yt="1"
              onclick="openContentModal('https://www.miricanvas.com/v/14mcl0m','상악 임플란트 시뮬레이션','Ez3D-i','https://youtu.be/jiz12sGUdJw')" role="button" tabindex="0"
              onkeydown="if(event.key==='Enter'){openContentModal('https://www.miricanvas.com/v/14mcl0m','상악 임플란트 시뮬레이션','Ez3D-i','https://youtu.be/jiz12sGUdJw');}">
           <div class="video-thumb dental">
@@ -264,7 +266,7 @@
             </div>
           </div>
         </div>
-        <div class="video-card" data-name="smart implant 식립" data-url="https://www.miricanvas.com/v/14mdqw7" data-idx="10" data-yt="0"
+        <div class="video-card" data-name="smart implant 식립" data-url="https://www.miricanvas.com/v/14mdqw7" data-views="25" data-idx="10" data-yt="0"
              onclick="openContentModal('https://www.miricanvas.com/v/14mdqw7','Smart Implant 식립','Ez3D-i','')" role="button" tabindex="0"
              onkeydown="if(event.key==='Enter'){openContentModal('https://www.miricanvas.com/v/14mdqw7','Smart Implant 식립','Ez3D-i','');}">
           <div class="video-thumb dental">
@@ -281,7 +283,7 @@
             </div>
           </div>
         </div>
-        <div class="video-card" data-name="3d 파노라마 탭" data-url="https://www.miricanvas.com/v/158up2l" data-idx="11" data-yt="1"
+        <div class="video-card" data-name="3d 파노라마 탭" data-url="https://www.miricanvas.com/v/158up2l" data-views="22" data-idx="11" data-yt="1"
              onclick="openContentModal('https://www.miricanvas.com/v/158up2l','3D 파노라마 탭','Ez3D-i','https://youtu.be/279WjFveB2Q')" role="button" tabindex="0"
              onkeydown="if(event.key==='Enter'){openContentModal('https://www.miricanvas.com/v/158up2l','3D 파노라마 탭','Ez3D-i','https://youtu.be/279WjFveB2Q');}">
           <div class="video-thumb dental">
@@ -298,7 +300,7 @@
             </div>
           </div>
         </div>
-        <div class="video-card" data-name="tmj 탭" data-url="https://www.miricanvas.com/v/15990zf" data-idx="12" data-yt="0"
+        <div class="video-card" data-name="tmj 탭" data-url="https://www.miricanvas.com/v/15990zf" data-views="39" data-idx="12" data-yt="0"
              onclick="openContentModal('https://www.miricanvas.com/v/15990zf','TMJ 탭','Ez3D-i','')" role="button" tabindex="0"
              onkeydown="if(event.key==='Enter'){openContentModal('https://www.miricanvas.com/v/15990zf','TMJ 탭','Ez3D-i','');}">
           <div class="video-thumb dental">
@@ -315,7 +317,7 @@
             </div>
           </div>
         </div>
-        <div class="video-card" data-name="endo 탭 활용하기" data-url="https://www.miricanvas.com/v/15akutg" data-idx="13" data-yt="1"
+        <div class="video-card" data-name="endo 탭 활용하기" data-url="https://www.miricanvas.com/v/15akutg" data-views="1" data-idx="13" data-yt="1"
              onclick="openContentModal('https://www.miricanvas.com/v/15akutg','Endo 탭 활용하기','Ez3D-i','https://youtu.be/YgiK2x2vADA')" role="button" tabindex="0"
              onkeydown="if(event.key==='Enter'){openContentModal('https://www.miricanvas.com/v/15akutg','Endo 탭 활용하기','Ez3D-i','https://youtu.be/YgiK2x2vADA');}">
           <div class="video-thumb dental">
@@ -332,7 +334,7 @@
             </div>
           </div>
         </div>
-        <div class="video-card" data-name="근관그리기" data-url="https://www.miricanvas.com/v/15c99sv" data-idx="14" data-yt="0"
+        <div class="video-card" data-name="근관그리기" data-url="https://www.miricanvas.com/v/15c99sv" data-views="13" data-idx="14" data-yt="0"
              onclick="openContentModal('https://www.miricanvas.com/v/15c99sv','근관그리기','Ez3D-i','')" role="button" tabindex="0"
              onkeydown="if(event.key==='Enter'){openContentModal('https://www.miricanvas.com/v/15c99sv','근관그리기','Ez3D-i','');}">
           <div class="video-thumb dental">
@@ -349,7 +351,7 @@
             </div>
           </div>
         </div>
-        <div class="video-card" data-name="골밀도 측정 기능" data-url="https://www.miricanvas.com/v/15ceuwi" data-idx="15" data-yt="0"
+        <div class="video-card" data-name="골밀도 측정 기능" data-url="https://www.miricanvas.com/v/15ceuwi" data-views="17" data-idx="15" data-yt="0"
              onclick="openContentModal('https://www.miricanvas.com/v/15ceuwi','골밀도 측정 기능','Ez3D-i','')" role="button" tabindex="0"
              onkeydown="if(event.key==='Enter'){openContentModal('https://www.miricanvas.com/v/15ceuwi','골밀도 측정 기능','Ez3D-i','');}">
           <div class="video-thumb dental">
@@ -366,7 +368,7 @@
             </div>
           </div>
         </div>
-        <div class="video-card" data-name="중첩" data-url="https://www.miricanvas.com/v/15cix5a" data-idx="16" data-yt="0"
+        <div class="video-card" data-name="중첩" data-url="https://www.miricanvas.com/v/15cix5a" data-views="12" data-idx="16" data-yt="0"
              onclick="openContentModal('https://www.miricanvas.com/v/15cix5a','중첩','Ez3D-i','')" role="button" tabindex="0"
              onkeydown="if(event.key==='Enter'){openContentModal('https://www.miricanvas.com/v/15cix5a','중첩','Ez3D-i','');}">
           <div class="video-thumb dental">
@@ -383,7 +385,7 @@
             </div>
           </div>
         </div>
-        <div class="video-card" data-name="oblique" data-url="https://www.miricanvas.com/v/15cndw6" data-idx="17" data-yt="0"
+        <div class="video-card" data-name="oblique" data-url="https://www.miricanvas.com/v/15cndw6" data-views="6" data-idx="17" data-yt="0"
              onclick="openContentModal('https://www.miricanvas.com/v/15cndw6','Oblique','Ez3D-i','')" role="button" tabindex="0"
              onkeydown="if(event.key==='Enter'){openContentModal('https://www.miricanvas.com/v/15cndw6','Oblique','Ez3D-i','');}">
           <div class="video-thumb dental">
@@ -400,7 +402,7 @@
             </div>
           </div>
         </div>
-        <div class="video-card" data-name="2nd image viewer​" data-url="https://www.miricanvas.com/v/15ctfdm" data-idx="18" data-yt="0"
+        <div class="video-card" data-name="2nd image viewer​" data-url="https://www.miricanvas.com/v/15ctfdm" data-views="9" data-idx="18" data-yt="0"
              onclick="openContentModal('https://www.miricanvas.com/v/15ctfdm','2nd image viewer​','Ez3D-i','')" role="button" tabindex="0"
              onkeydown="if(event.key==='Enter'){openContentModal('https://www.miricanvas.com/v/15ctfdm','2nd image viewer​','Ez3D-i','');}">
           <div class="video-thumb dental">
@@ -440,8 +442,10 @@
 </div>
 
 <script>
+let searchDebounceTimer;
 function filterItems() {
-  applyFilters();
+  clearTimeout(searchDebounceTimer);
+  searchDebounceTimer = setTimeout(applyFilters, 350);
 }
 
 function onTypeAll(cb) {
@@ -479,6 +483,7 @@ function sortCards() {
   const cards = Array.from(grid.querySelectorAll('.video-card[data-name]'));
   cards.sort((a, b) => {
     if (mode === 'name') return a.dataset.name.localeCompare(b.dataset.name, 'ko');
+    if (mode === 'views') return (parseInt(b.dataset.views)||0) - (parseInt(a.dataset.views)||0);
     return (parseInt(a.dataset.idx)||0) - (parseInt(b.dataset.idx)||0);
   });
   cards.forEach(c => grid.appendChild(c));
