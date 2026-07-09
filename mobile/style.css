@@ -1,0 +1,217 @@
+@font-face {
+  font-family: "Vatech Sans";
+  src: url("assets/fonts/Vatech-Regular.otf") format("opentype");
+  font-weight: 400; font-style: normal; font-display: swap;
+  unicode-range: U+0000-024F, U+0300-03FF, U+2000-206F, U+2070-209F, U+20A0-20CF, U+2100-214F, U+2190-21FF, U+2200-22FF;
+}
+@font-face {
+  font-family: "Pretendard";
+  src: url("assets/fonts/Pretendard-Regular.otf") format("opentype");
+  font-weight: 400; font-display: swap;
+}
+@font-face {
+  font-family: "Pretendard";
+  src: url("assets/fonts/Pretendard-Bold.otf") format("opentype");
+  font-weight: 700; font-display: swap;
+}
+@font-face {
+  font-family: "Pretendard";
+  src: url("assets/fonts/Pretendard-Light.otf") format("opentype");
+  font-weight: 300; font-display: swap;
+}
+
+:root {
+  --vatech-red: #db072f;
+  --ink: #191f28;
+  --ink-soft: #8b95a1;
+  --cloud: #f2f4f6;
+  --paper: #ffffff;
+  --line: #eef0f2;
+
+  --dental-green: #00a672;
+  --dental-green-soft: #e5f5ef;
+  --clever-one-black: #1c1b18;
+  --clever-one-soft: #eeeeee;
+  --lab-mint: #01c0a6;
+  --lab-mint-soft: #e1f8f4;
+}
+
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+html, body {
+  margin: 0; padding: 0; background: var(--cloud); color: var(--ink);
+  font-family: "Vatech Sans", "Pretendard", "Apple SD Gothic Neo", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overscroll-behavior-y: contain;
+}
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; }
+
+.app {
+  max-width: 480px; margin: 0 auto; min-height: 100vh;
+  background: var(--cloud); position: relative;
+  display: flex; flex-direction: column;
+}
+
+/* ---------- 상단바 ---------- */
+.app-topbar {
+  position: sticky; top: 0; z-index: 30;
+  background: var(--paper); border-bottom: 1px solid var(--line);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 18px;
+}
+.app-topbar .logo-row { display: flex; align-items: center; gap: 8px; }
+.app-topbar .logo-row img { height: 18px; }
+.app-topbar .logo-row span { font-size: 13.5px; font-weight: 700; color: var(--ink-soft); }
+.app-topbar .icon-btn {
+  width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  color: var(--ink); background: var(--cloud); border: none;
+}
+.app-topbar .icon-btn svg { width: 18px; height: 18px; }
+
+/* ---------- 뷰 컨테이너 ---------- */
+.view { display: none; padding: 4px 18px 100px; flex: 1; }
+.view.active { display: block; }
+
+/* ---------- 홈 뷰 ---------- */
+.greeting { padding: 22px 2px 6px; }
+.greeting .hi { font-size: 13.5px; color: var(--ink-soft); font-weight: 600; margin-bottom: 4px; }
+.greeting h1 { font-size: 21px; font-weight: 800; margin: 0; line-height: 1.4; }
+
+.quick-icons {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px 8px;
+  background: var(--paper); border-radius: 18px; padding: 20px 12px; margin: 16px 0;
+}
+.quick-icon { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.quick-icon .qi-circle {
+  width: 52px; height: 52px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  font-weight: 800; font-size: 14px; color: #fff;
+}
+.quick-icon.dental .qi-circle { background: var(--dental-green); }
+.quick-icon.lab .qi-circle { background: var(--lab-mint); color: #04443c; }
+.quick-icon.clever-one .qi-circle { background: var(--clever-one-black); }
+.quick-icon.reserve .qi-circle { background: var(--ink); font-size: 18px; }
+.quick-icon .qi-label { font-size: 12px; font-weight: 700; color: var(--ink); text-align: center; }
+
+.section-title { font-size: 16.5px; font-weight: 800; margin: 22px 2px 12px; display: flex; align-items: center; justify-content: space-between; }
+.section-title .st-more { font-size: 12.5px; font-weight: 700; color: var(--ink-soft); }
+
+.feed-card {
+  background: var(--paper); border-radius: 16px; padding: 14px; margin-bottom: 10px;
+  display: flex; align-items: center; gap: 12px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+}
+.feed-card:active { background: #f7f8f9; }
+.feed-card .fc-thumb {
+  width: 56px; height: 56px; border-radius: 12px; flex: none; overflow: hidden;
+  display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 800; font-size: 12px;
+  position: relative;
+}
+.feed-card .fc-thumb img { width: 100%; height: 100%; object-fit: cover; }
+.feed-card .fc-thumb.dental { background: var(--dental-green); }
+.feed-card .fc-thumb.lab { background: var(--lab-mint); color: #04443c; }
+.feed-card .fc-thumb.clever-one { background: var(--clever-one-black); }
+.feed-card .fc-body { flex: 1; min-width: 0; }
+.feed-card .fc-title { font-size: 14.5px; font-weight: 700; margin-bottom: 4px; line-height: 1.4;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.feed-card .fc-tag { font-size: 11.5px; color: var(--ink-soft); font-weight: 600; }
+.feed-card .fc-arrow { color: #c3c8ce; flex: none; }
+
+.promo-card {
+  background: linear-gradient(135deg, var(--ink), #33241a);
+  border-radius: 18px; padding: 20px; color: #fff; margin: 18px 0;
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+}
+.promo-card .pc-text .pc-title { font-size: 15px; font-weight: 800; margin-bottom: 4px; }
+.promo-card .pc-text .pc-sub { font-size: 12px; color: #d8d3cc; }
+.promo-card .pc-btn { background: #fff; color: var(--ink); font-size: 12.5px; font-weight: 800; padding: 9px 14px; border-radius: 999px; white-space: nowrap; }
+
+/* ---------- 카테고리 뷰 ---------- */
+.cat-row {
+  background: var(--paper); border-radius: 16px; padding: 16px; margin-bottom: 10px;
+  display: flex; align-items: center; gap: 14px;
+}
+.cat-row .cr-icon {
+  width: 44px; height: 44px; border-radius: 12px; flex: none; display: flex; align-items: center; justify-content: center;
+  font-weight: 800; font-size: 13px; color: #fff;
+}
+.cat-row.dental .cr-icon { background: var(--dental-green); }
+.cat-row.lab .cr-icon { background: var(--lab-mint); color: #04443c; }
+.cat-row.clever-one .cr-icon { background: var(--clever-one-black); }
+.cat-row .cr-body { flex: 1; }
+.cat-row .cr-title { font-size: 15px; font-weight: 800; }
+.cat-row .cr-count { font-size: 12px; color: var(--ink-soft); margin-top: 2px; }
+.cat-row .cr-arrow { color: #c3c8ce; }
+
+/* ---------- 제품 상세 리스트(카테고리 하위) ---------- */
+.sub-header { display: flex; align-items: center; gap: 10px; padding: 14px 2px 4px; }
+.sub-header .back-btn { width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; color: var(--ink); flex: none; }
+.sub-header h2 { font-size: 17px; font-weight: 800; margin: 0; }
+.mini-search {
+  display: flex; align-items: center; gap: 8px; background: var(--paper); border-radius: 12px; padding: 10px 14px; margin: 12px 0;
+}
+.mini-search input { flex: 1; border: none; outline: none; font-size: 14px; background: transparent; }
+.mini-search svg { width: 16px; height: 16px; color: var(--ink-soft); }
+
+/* ---------- 검색 뷰 ---------- */
+.search-input-lg {
+  display: flex; align-items: center; gap: 10px; background: var(--paper); border-radius: 14px; padding: 13px 16px; margin-top: 14px;
+}
+.search-input-lg input { flex: 1; border: none; outline: none; font-size: 15px; background: transparent; }
+.search-input-lg svg { width: 18px; height: 18px; color: var(--ink-soft); }
+.search-empty-state { text-align: center; padding: 60px 20px; color: var(--ink-soft); font-size: 13.5px; }
+
+/* ---------- 예약 뷰 ---------- */
+.reserve-card {
+  background: var(--paper); border-radius: 18px; padding: 24px; margin-top: 14px; text-align: center;
+}
+.reserve-card .rc-icon { font-size: 34px; margin-bottom: 12px; }
+.reserve-card h2 { font-size: 17px; font-weight: 800; margin: 0 0 8px; }
+.reserve-card p { font-size: 13px; color: var(--ink-soft); line-height: 1.7; margin: 0 0 18px; }
+.reserve-card .rc-btn { display: inline-block; background: var(--vatech-red); color: #fff; font-weight: 800; font-size: 14px; padding: 13px 28px; border-radius: 999px; }
+.contact-mini { background: var(--paper); border-radius: 16px; padding: 18px; margin-top: 12px; }
+.contact-mini .cm-title { font-size: 13px; font-weight: 800; color: var(--ink-soft); margin-bottom: 8px; }
+.contact-mini .cm-row { display: flex; justify-content: space-between; font-size: 13.5px; padding: 6px 0; border-bottom: 1px solid var(--line); }
+.contact-mini .cm-row:last-child { border-bottom: none; }
+.contact-mini .cm-row a { color: var(--vatech-red); font-weight: 700; }
+
+/* ---------- 하단 탭바 ---------- */
+.tabbar {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 40;
+  max-width: 480px; margin: 0 auto;
+  background: var(--paper); border-top: 1px solid var(--line);
+  display: flex; padding: 6px 4px calc(6px + env(safe-area-inset-bottom));
+}
+.tab-item {
+  flex: 1; display: flex; flex-direction: column; align-items: center; gap: 3px;
+  padding: 6px 0; color: var(--ink-soft); border: none; background: none;
+}
+.tab-item svg { width: 22px; height: 22px; }
+.tab-item .tab-label { font-size: 10.5px; font-weight: 700; }
+.tab-item.active { color: var(--vatech-red); }
+
+/* ---------- 콘텐츠 상세 (풀스크린) ---------- */
+.detail-sheet {
+  position: fixed; inset: 0; z-index: 100; background: var(--paper);
+  display: none; flex-direction: column;
+  max-width: 480px; margin: 0 auto;
+}
+.detail-sheet.open { display: flex; }
+.detail-sheet .ds-top {
+  display: flex; align-items: center; gap: 10px; padding: 14px 16px; border-bottom: 1px solid var(--line); flex: none;
+}
+.detail-sheet .ds-top .back-btn { width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; }
+.detail-sheet .ds-top .ds-title { font-size: 15.5px; font-weight: 800; flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.detail-sheet .ds-body { flex: 1; overflow-y: auto; padding: 16px; }
+.detail-sheet .ds-frame-wrap { border: 1px solid var(--line); border-radius: 12px; overflow: hidden; background: var(--cloud); }
+.detail-sheet iframe { width: 100%; height: 60vh; border: 0; display: block; }
+.detail-sheet .ds-fallback { font-size: 12.5px; color: var(--ink-soft); margin-top: 12px; text-align: center; }
+.detail-sheet .ds-fallback a { color: var(--vatech-red); font-weight: 700; }
+.detail-sheet .ds-yt-wrap { border: 1px solid var(--line); border-radius: 12px; overflow: hidden; margin-top: 18px; }
+.detail-sheet .ds-yt-wrap iframe { aspect-ratio: 16/9; height: auto; }
+.detail-sheet .ds-yt-title { font-size: 13.5px; font-weight: 800; margin: 18px 0 10px; }
+
+/* ---------- 데스크톱에서 프리뷰 시 프레임 느낌 ---------- */
+@media (min-width: 520px) {
+  body { background: #ddd; }
+  .app { box-shadow: 0 0 40px rgba(0,0,0,0.15); min-height: 100vh; }
+}
