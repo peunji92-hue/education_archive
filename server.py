@@ -22,7 +22,7 @@ import os
 import sqlite3
 import mimetypes
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
-from urllib.parse import urlparse, parse_qs
+from urllib.parse import urlparse, parse_qs, unquote
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 STATIC_DIR = os.path.join(BASE_DIR, "public")
@@ -122,6 +122,7 @@ class Handler(BaseHTTPRequestHandler):
     def _serve_static(self, path):
         if path == "/":
             path = "/index.html"
+        path = unquote(path)
         file_path = os.path.normpath(os.path.join(STATIC_DIR, path.lstrip("/")))
         if not file_path.startswith(STATIC_DIR):
             self.send_error(403)
