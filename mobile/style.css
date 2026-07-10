@@ -84,8 +84,9 @@ button { font-family: inherit; }
 .quick-icon { display: flex; flex-direction: column; align-items: center; gap: 8px; }
 .quick-icon .qi-circle {
   width: 52px; height: 52px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
-  font-weight: 800; font-size: 14px; color: #fff;
+  font-weight: 800; font-size: 14px; color: #fff; text-align: center; line-height: 1.05; padding: 2px;
 }
+.quick-icon .qi-circle.qi-long { font-size: 8px; white-space: normal; }
 .quick-icon.dental .qi-circle { background: var(--dental-green); }
 .quick-icon.lab .qi-circle { background: var(--lab-mint); color: #04443c; }
 .quick-icon.clever-one .qi-circle { background: var(--clever-one-black); }
@@ -104,8 +105,9 @@ button { font-family: inherit; }
 .feed-card .fc-thumb {
   width: 56px; height: 56px; border-radius: 12px; flex: none; overflow: hidden;
   display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 800; font-size: 12px;
-  position: relative;
+  position: relative; text-align: center; line-height: 1.05; padding: 2px;
 }
+.feed-card .fc-thumb.fc-long { font-size: 8px; }
 .feed-card .fc-thumb img { width: 100%; height: 100%; object-fit: cover; }
 .feed-card .fc-thumb.dental { background: var(--dental-green); }
 .feed-card .fc-thumb.lab { background: var(--lab-mint); color: #04443c; }
@@ -132,8 +134,9 @@ button { font-family: inherit; }
 }
 .cat-row .cr-icon {
   width: 44px; height: 44px; border-radius: 12px; flex: none; display: flex; align-items: center; justify-content: center;
-  font-weight: 800; font-size: 13px; color: #fff;
+  font-weight: 800; font-size: 13px; color: #fff; text-align: center; line-height: 1.05; padding: 2px;
 }
+.cat-row .cr-icon.cr-long { font-size: 7.5px; }
 .cat-row.dental .cr-icon { background: var(--dental-green); }
 .cat-row.lab .cr-icon { background: var(--lab-mint); color: #04443c; }
 .cat-row.clever-one .cr-icon { background: var(--clever-one-black); }

@@ -87,9 +87,10 @@ function runSearch(val) {
 function feedCardHtml(it, product, idx) {
   const brand = (PRODUCT_META[product] || {}).brand || 'dental';
   const initial = (PRODUCT_META[product] || {}).initial || '';
+  const longCls = initial.length > 4 ? ' fc-long' : '';
   const thumbHtml = it.thumb
     ? `<div class="fc-thumb ${brand}"><img src="assets/thumbnails/${it.thumb}" alt="" loading="lazy" /></div>`
-    : `<div class="fc-thumb ${brand}">${escapeHtml(initial)}</div>`;
+    : `<div class="fc-thumb ${brand}${longCls}">${escapeHtml(initial)}</div>`;
   const nameAttr = escapeHtml(it.name).toLowerCase();
   return `<div class="feed-card" data-name="${nameAttr}" onclick="${onclickFor(it, product)}">
     ${thumbHtml}
