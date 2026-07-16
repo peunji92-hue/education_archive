@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta name="robots" content="noindex, nofollow" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>학습 대시보드 | Education Center</title>
+<link rel="stylesheet" href="style.css" />
+<link rel="stylesheet" href="completion.css" />
+</head>
+<body>
+<div class="utility-bar">
+  <div class="inner">
+    <a href="https://vestmall.kr/front/extra/extra_html.php?html=remote" target="_blank" rel="noopener">원격지원</a>
+    <a href="https://vatechmcis.com/" target="_blank" rel="noopener">바텍엠시스 홈페이지 ↗</a>
+  </div>
+</div>
+<div class="site-header">
+  <div class="inner">
+    <a class="logo-link" href="index.html">
+      <div class="logo-group">
+        <div class="logo-chip"><img src="assets/logo-vatechmcis.png" alt="vatech mcis" /></div>
+        <div class="logo-divider"></div>
+        <div class="academy-wordmark"><span class="line2">Education Center</span></div>
+      </div>
+    </a>
+    <div class="header-row-wrap">
+      <nav class="main-nav">
+        <a href="index.html" class="home-link">교육 홈</a>
+        <a href="ez3d-i.html" class="nav-dental">Ez3D-i</a>
+        <a href="ezortho.html" class="nav-dental">EzOrtho</a>
+        <a href="ezdent-i.html" class="nav-dental">EzDent-i</a>
+        <a href="clever-one.html" class="nav-clever-one">Clever One</a>
+        <a href="clever-lab.html" class="nav-lab">Clever Lab</a>
+      </nav>
+      <div class="header-icons">
+        <a class="reserve-toggle" href="https://www.miricanvas.com/v2/design2/v/1a86edd3-d8cb-4b45-9fa4-6c8b7379f6b5" target="_blank" rel="noopener" aria-label="온라인 교육 예약" title="온라인 교육 예약"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="16" rx="2.5"/><line x1="16" y1="2.5" x2="16" y2="6.5"/><line x1="8" y1="2.5" x2="8" y2="6.5"/><line x1="3" y1="9.5" x2="21" y2="9.5"/><path d="M8.5 14l2 2 4-4"/></svg></a>
+        <a class="mobile-toggle" href="mobile/index.html" aria-label="모바일 버전으로 보기" title="모바일 버전으로 보기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2.2"/><line x1="11" y1="18.5" x2="13" y2="18.5"/></svg></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="page">
+  <div id="vcDashboard"></div>
+
+</div>
+
+<footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img class="footer-logo" src="assets/logo-vatechmcis.png" alt="vatech mcis" />
+        <h3>(주)바텍엠시스</h3>
+        <p class="addr">본사 경기도 수원시 권선구 산업로155번길 38 (고색동)<br />서울사무소 서울시 마포구 토정로 266, 3층 (용강동)</p>
+        <p class="contact">장애접수·고객센터 <a href="tel:1577-9115">1577-9115</a> (평일 09:30~18:00)<br />대표이사 고영탁 · 사업자등록번호 104-86-22858</p>
+        <p class="copy">Copyright © 2026 VATECH MCIS. All Rights Reserved.</p>
+      </div>
+      <div class="footer-menu">
+        <h3>Menu</h3>
+        <div class="menu-cols">
+          <ul>
+            <li><a href="index.html">교육 홈</a></li>
+            <li><a href="learning.html">학습 대시보드</a></li>
+            <li><a href="ez3d-i.html">Ez3D-i</a></li>
+            <li><a href="ezortho.html">EzOrtho</a></li>
+            <li><a href="ezdent-i.html">EzDent-i</a></li>
+          </ul>
+          <ul>
+            <li><a href="clever-one.html">Clever One</a></li>
+            <li><a href="clever-lab.html">Clever Lab</a></li>
+            <li><a href="https://vestmall.kr/front/extra/extra_html.php?html=remote" target="_blank" rel="noopener">원격지원 ↗</a></li>
+            <li><a href="https://www.miricanvas.com/v2/design2/v/1a86edd3-d8cb-4b45-9fa4-6c8b7379f6b5" target="_blank" rel="noopener">온라인 교육 예약 ↗</a></li>
+            <li><a href="https://vatechmcis.com/" target="_blank" rel="noopener">바텍엠시스 홈페이지 ↗</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      본 페이지는 Education Center 내부 교육 콘텐츠 사이트이며, (주)바텍엠시스 공식 홈페이지와는 별개로 운영되는 사내 도구입니다.
+    </div>
+  </footer>
+
+<!-- 콘텐츠 상세 모달 (자료실 페이지와 동일) -->
+<div class="content-modal-backdrop" id="contentModalBackdrop">
+  <div class="content-modal">
+    <div class="modal-top">
+      <div class="modal-title-wrap">
+        <div class="modal-eyebrow" id="modalEyebrow"></div>
+        <h3 id="modalTitle"></h3>
+      </div>
+      <div class="modal-close" id="modalClose"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div>
+    </div>
+    <div class="detail-frame-wrap">
+      <iframe id="modalFrame" src="" title="콘텐츠 미리보기" allowfullscreen loading="lazy"></iframe>
+    </div>
+    <div class="detail-fallback">
+      <span>화면이 표시되지 않는다면, 대상 사이트에서 외부 삽입을 막아둔 것일 수 있습니다.</span>
+      <a id="modalOpenNewTab" href="#" target="_blank" rel="noopener" class="btn btn-primary">새 창에서 열기 ↗</a>
+    </div>
+    <div id="modalYtSection" style="display:none;">
+      <div class="section-title-row" style="margin-top:28px;">
+        <h2 style="font-size:18px;">관련 유튜브 영상</h2>
+      </div>
+      <div class="detail-yt-wrap">
+        <iframe id="modalYtFrame" src="" title="유튜브 영상" allowfullscreen loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="search-data.js"></script>
+<script src="doc-assets.js"></script>
+<script src="modal-ui.js"></script>
+<script src="completion.js"></script>
+</body>
+</html>
